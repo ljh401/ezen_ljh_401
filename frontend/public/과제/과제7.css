@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.number{
+ 	color : #fab005;
+ 	display : inline;
+ 	
+}
+
+.title{
+	display : inline;
+}
+
+.content{
+	color : #fab005;
+}
+
+.box {
+	border : solid 1px white;
+	background-color: #0F6878;
+	color : white;
+	padding : 20px;
+	width : 500px;
+}
+
