@@ -5,143 +5,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-         <table width="700px" border="1" style="border-collapse: collapse;"">
-            <tr>
-               <th>
-                  <h1>이젠 병원 직원 식사 만족도 설문지</h1>
-               </th>
-            </tr>
-         </table>
-         <br />
-         <table width="700px" border="1" style="border-collapse: collapse;"">
-            <tr>
-               <td>
-                  <h4>
-                     <p style="text-align: center; margin-right: 10px">
-                        본 설문지는 이젠 병원 직원 급식에 대한 만족도 및 관심도를 알아보고자 작성되었습니다.<br />
-                        <br /> 협조해주시면 병원 직원 급식 운영 개선에 참고 하겠사오니 성의껏 작성해주시길 바랍니다.<br />
-                  </h4>
-                  <p style="text-align: right; margin-right: 24px">
-                     설문 날짜 : <input type="date"> 설문자 이름 : <input type="text"
-                        size="10" maxlength="20">
-                  </p>
-               </td>
-            </tr>
-         </table>
-
-
-         <ul>
-            <li>
-               <h3>급식의 질과 서비스에 관한 사항</h3>
-            </li>
-
-            <table  width="700px" border="1" style="border-collapse: collapse;">
-               <tr>
-                  <th colspan="2">문항</th>
-                  <th>전혀<br />그렇지않다
-                  </th>
-                  <th>그렇지<br />않다
-                  </th>
-                  <th>그저<br /> 그렇다
-                  </th>
-                  <th>그렇다</th>
-                  <th>아주<br /> 그렇다
-                  </th>
-               </tr>
-               <tr>
-                  <td>1</td>
-                  <td>식단이 다양하다</td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-
-               </tr>
-               <tr>
-                  <td>2</td>
-                  <td>음식이 맛있다</td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-               </tr>
-               <tr>
-                  <td>3</td>
-                  <td>음식의 간이 적당하다</td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-               <tr>
-                  <td>4</td>
-                  <td>식기가 청결하다</td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-               </tr>
-               <tr>
-                  <td>5</td>
-                  <td>조리원이 친절하다</td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-                  <td style="text-align: center"><input type="radio"
-                     name="confirm"></td>
-            </table>
-
-
-            <li>
-               <h3>건의 사항</h3>
-            </li>
-            <table border="1" style="border-collapse: collapse;">
-               <textarea rows="15" cols="70" placeholder="건의사항을 작성해주세요."></textarea>
-            </table>
-            <form style="width:700px">
-               <p style="text-align: right">
-                  <input type="submit" value="저장"> <input type="reset"
-                     value="취소">
-               </p>
-            </form>
-         </ul>
-         <div style="display: flex; align-items: center;">
-            <div style="float: left">
-               <p style="text-align: left; margin-left: 137px">
-                  <img width="50px" src="이젠병원.png">
-            </div>
-            <div>
-               <h1>이젠 병원</h1>
-            </div>
-         </div>
-      
+	<h2> 테이블 병합 연습</h2>
+	
+	<table border = "1">
+		
+			
+		<tr> 
+	 		<td colspan = "3"> 1</td> <td rowspan = "3"> 2</td>  <td> 3 </td> <td rowspan = "5"> 4 </td><td colspan = "2" rowspan = "2"> 5</td>
+	 	</tr>
+	 	<tr> 
+	 		<td colspan = "2"> 6</td> <td> 7 </td>  <td rowspan ="3" >8 </td>
+	 	</tr>
+	 	<tr> 
+	 		<td> 9 </td> <td colspan = "2"> 10</td>  <td rowspan = "2"> 11 </td> <td rowspan = "4"> 12 </td> 
+	 	</tr>
+	 	<tr> 
+	 		<td rowspan = "3"> 13 </td> <td> 14 </td> <td colspan ="2"> 15 </td> 
+	 	</tr>
+	 	<tr> 
+	 		<td rowspan ="3"> 16 </td> <td> 17 </td> <td> 18 </td> <td rowspan = "2"> 19 </td>  <td> 20 </td> 
+	 	</tr>
+	 	<tr> 
+	 		<td colspan = "2"> 21 </td> <td colspan ="2" rowspan = "2"> 22 </td> 
+	 	</tr> 
+		<tr> 
+	 		<td > 23 </td> <td> 24 </td> <td colspan = "2"> 25 </td> <td> 26 </td>  
+	 	</tr>
+	</table>
 </body>
 </html>
