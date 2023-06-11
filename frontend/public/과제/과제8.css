@@ -11,7 +11,7 @@
 
 .content1 {
 	border : solid 1px #DDDDDD;
-	width : 475px; height : 370px;
+	width : 475px; height : 400px;
 	padding-left : 60px;
 }
 
@@ -20,13 +20,19 @@
 	text-align : "center";
 	border-radius: 5px;
 	width : 410px; height: 40px;
-	margin-bottom : 10px;
-	
-	
+	margin-bottom : 15px;	
+	padding-bottom : 10px;
+	padding-top : 10px;
+}
+
+.content1 .radiobox {
+	margin-bottom : 40px;
+	text-align : "left";
+	font-size : 15px;
 }
 
 .content1 .login {
-	background-color: yellow;
+	background-color: #fee500;
 }
 
 .content1 .input {
@@ -39,8 +45,68 @@
 	
 }
 
+.content1 .okay1 {
+	margin-left : 200px;
+	font-size : 11px;
+	border : 0px;
+	background-color: #ffffff;
+}
+
 .content1 .okay {
-	font-size : 10px;
-	padding-left : 300px;
+	font-size : 11px;
+	border : 0px;
+	background-color : #ffffff;
+	border-left : solid 1px #dadada;
+}
+
+.content2 {
+	width : 700px;
 	
+	margin-top : 30px;
+}
+
+.content2 .service1 {
+	padding-top : 12px;
+	background-color: #ffffff;
+	border : 0px;
+	font-size: 11px;
+	padding-left: 60px;
+	
+	
+}	
+
+.content2 .service {
+	padding-top : 12px;
+	background-color: #ffffff;
+	border : 0px;
+	font-size: 11px;
+	
+}
+
+.content2 .service2 {
+	padding-top : 12px;
+	background-color: #ffffff;
+	border : 0px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.content2 .lang {
+	padding-top : 12px;
+	background-color: #ffffff;
+	border : 0px;
+	font-size: 11px;
+}
+
+.content2 .last {
+	font-size : 11px;
+	padding-left: 165px;
+	color : gray;
+	padding-top : 10px;
+}
+
+.content2 .color {
+	font-size : 11px;
+	
+	color : black;
 }
