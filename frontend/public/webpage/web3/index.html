@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>네이버 회원가입</title>
+	<link href = "index.css" rel = "stylesheet">
+</head>
+<body>
+
+<div id = "wrap"> <!-- 전체 레이아웃 -->
+		<div id = "header"> <!-- 헤더 -->
+			<div class = "h_logo">
+				<a href = "https://www.naver.com"> <!-- 이미지 링크 -->
+				<img src="img/naver_logo.png"></a> <!-- 이미지 링크 end -->
+			</div>
+		</div> <!-- 헤더 end -->
+	<form id = "join_form"> <!-- 회원가입 구역 -->
+		
+		<div>
+			<h5>아이디</h5>
+				<span class = "signup_input">
+					<input class = "input_id" type = "text" maxlength = "30">
+					<span class = "signup_at">@naver.com</span>
+				</span>
+				
+			<h5>비밀번호</h5>
+				<span class = "signup_input">
+					<input class = "input_id" type = "password" maxlength = "30">
+					<span class = "signup_icon"></span>
+				</span>
+				
+			<h5>비밀번호 확인</h5>
+				<span class = "signup_input">
+					<input class = "input_id" type = "password" maxlength = "30">
+					<span class = "signup_icon"></span>
+				</span>
+				
+			<h5>이름</h5>
+				<span class = "signup_input">
+					<input class = "input_id" type = "text" maxlength = "30">
+				</span>
+			
+			<h5>생년월일</h5>
+			<span class = "birthbox"> <!-- 생년월일 -->
+				<span class = "signup_input birthY"> <!-- 연도 -->
+					<input class = "input_id" type = "text" maxlength = "4" placeholder="년(4자)">
+				</span>
+				
+				<span class = "signup_input birthM"> <!-- 월 -->
+					<select  class = "input_id">
+						<option>월</option><option>1</option><option>2</option>
+						<option>3</option><option>4</option><option>5</option>
+						<option>6</option><option>7</option><option>8</option>
+						<option>9</option><option>10</option><option>11</option>
+						<option>12</option>
+					
+					</select>
+				</span>
+				
+				<span class = "signup_input birthD"> <!-- 일 -->
+					<input class = "input_id" type = "text" maxlength = "2" placeholder="일">
+				</span>
+			</span>
+			
+			<h5>성별</h5>
+				<span class = "signup_input"> 
+					<select  class = "input_id">
+						<option>성별</option><option>남자</option><option>여자</option>
+					</select>
+				</span>
+			
+		
+			<div class = "checkemail"><h5>본인 확인 이메일</h5><h6>(선택)</h6></div>
+				<span class = "signup_input">
+					<input class = "input_id" type = "email"  placeholder = "선택입력" maxlength = "30">
+				</span>
+				
+			<h5>휴대전화</h5>
+				<span class = "signup_input"> 
+					<select  class = "input_id">
+						<option>대한민국 +82</option>
+					</select>
+				</span>	
+			<span class = "phonebox">
+				<span class ="signup_input">
+					<input class ="input_id input_phone" type = "text" maxlength = "30" placeholder = "전화번호 입력">
+				</span>
+				<input type = "button" class = "btn_auth" value = "인증번호 받기">
+			</span>
+			
+				<span class = "signup_input auth_input">
+				<!-- disabled="disabled" : 사용 금지 속성 -->
+					<input disabled="disabled" class = "input_id" type = "text" maxlength = "30" placeholder = "인증번호를 입력하세요.">
+				</span>	
+				
+				
+				<input class = "btn_signup" type = "submit" value = "가입하기" />
+				
+		</div>
+	</form>
+		<div id = "footer">
+		
+		<div class = "ft_top">
+			<a href = "#">이용약관</a> <span class = "a_line">|</span>
+			<a href = "#">개인정보처리방침</a> <span class = "a_line">|</span>
+			<a href = "#">책임의 한계와 법적 고지</a> <span class = "a_line">|</span>
+			<a href = "#">회원정보 고객센터</a>
+		</div>
+		<div class = "ft_sub">
+			<img src = "img/naver_logo.png" />
+			<span>Copyright NAVER Corp. All Rights Reserved.</span>
+		</div>
+		
+		</div> <!-- 푸터 -->	
+</div>
+	
+</body>
+</html>
