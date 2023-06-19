@@ -7,6 +7,7 @@ a{/* 모든 a태그 적용  */
 	color:white;	
 	text-decoration: none /* 밑줄,윗줄,취소선 */
 }
+/*---------------------------- 헤더----------------------------- */
 .drop_box_content a:hover{
 	color:#ffc107;
 }
@@ -134,7 +135,7 @@ a{/* 모든 a태그 적용  */
 .gift_notic a,.gift_notic a:hover{
 	color:salmon;
 }
-
+/*---------------------------- 헤더----------------------------- */
 li{list-style-type: none;}
 .TopContent1
 {
@@ -316,6 +317,9 @@ li{list-style-type: none;}
    margin-top: 30px;
 
 }
+
+
+/* ----------------------------------푸터---------------------------- */
 a{text-decoration :none;color: inherit;}
 
 .Footer
@@ -365,10 +369,87 @@ a{text-decoration :none;color: inherit;}
    margin-left: 40px;
 }
 
+/* ----------------------------------푸터---------------------------- */
+
 .TopContent5
 {
    background-color: #333;
    height: 70px;
    display: flex;
    justify-content: center;
+}
+
+
+
+
+
+ /* 팝업  */
+#popup_wrap{ /* 팝업창 전체구역 */
+   position: fixed;
+   right: 20px; top:30%; /* 오른쪽 가운데 */
+   height: 329PX;
+   border: solid 1px  #852123;;
+}
+
+.pop_color {
+	background-color: #FFFFFF;
+}
+
+.popup_item li{ height: 53px; } /* 팝업 아이콘 사이즈 */
+/* */
+.popup_item{ position: relative; 
+   width: 70px; height: 58px;
+   padding: 13px;
+   border: none;
+   text-align: center; /* 가로 정렬 */
+         }
+.popup_item2{
+   width: 96px; height: 41px;
+   background-color:#852123; 
+   border-bottom-left-radius: 3px;  
+   border-bottom-right-radius: 3px; 
+   margin-top:10px;
+}
+.popup_item2 img{
+   padding-top: 5px;
+   display:block;
+   border: 1px solid #852123;
+   width: 50px;
+   height: 10px;
+   margin: 0 auto;
+}
+.popup_item2_son{
+   margin: 0 auto;
+   
+
+}
+
+.sub_item{
+    height: 15px;
+   color: #852123;
+   border : none;
+   font-weight: bold;
+   font-size: 12px;
+}
+.sub_item2{
+   font-weight : bold;
+   text-align: center;
+   color: white;
+   border-bottom-left-radius: 10px;
+   
+}
+
+#pop{
+  padding-bottom: 20px;
+ }
+ 
+ 
+
+
+.popup_item3{ position: relative; 
+   width: 70px; height: 86px;
+   padding: 13px;
+   border: none;
+   text-align: center; /* 가로 정렬 */
+   
 }
