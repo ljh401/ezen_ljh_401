@@ -147,9 +147,37 @@ li{list-style-type: none;}
 .TopContent1
 {
    height: 600px;
-   background-image: url("팀플과제4img/TopBannerImange.png") ;
+   
+   background-image: url("./팀플과제4img/TopBannerImange.png") ;
    background-position: center;
-   /*수정 */
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+   
+}
+.appimg
+{
+   width: 100%
+   }
+.MainImageBtn
+{
+   color: white;
+   font-size: 80px;
+   padding-top: 250px;
+   
+}
+.Con1Page
+{
+   position: absolute;
+   top:90%;
+   text-align:center;
+   padding-top: 5px;
+   margin-left: 90%;
+   background-color: rgba(255,255,255,0.6);
+   border-radius: 20px;
+   opacity: 0.8;
+   width: 60px;
+   height: 30px;
 }
 
 .TopContent2
@@ -173,6 +201,17 @@ li{list-style-type: none;}
 {
    width: 500px;
 }
+.Content2_InContent img
+{
+   width: 20px;
+   height: 20px;
+   vertical-align: middle;
+   margin-left: 10px;
+}
+.Content2_InContent ul
+{
+   padding: 10px 0px;
+}
 .Content2_InContent li
 {
    padding: 3px 0px;
@@ -182,7 +221,7 @@ li{list-style-type: none;}
 {
    height: 850px;
    margin-top:-5px;
-   background-image: url("팀플과제4img/bg_menu2.jpg");
+   background-image: url("./팀플과제4img/bg_menu2.jpg");
    color: white;
    text-align: center;
 }
@@ -236,7 +275,7 @@ li{list-style-type: none;}
 }
 .item1
 {
-   background-image: url("팀플과제4img/con4itemimg.png");
+   background-image: url("./팀플과제4img/con4itemimg.png");
    background-size: contain;
    background-repeat: no-repeat;
    
@@ -244,7 +283,7 @@ li{list-style-type: none;}
 }
 .item2
 {
-   background-image: url("팀플과제4img/menu02_2021.png");
+   background-image: url("./팀플과제4img/menu02_2021.png");
    background-size: contain;
    background-repeat: no-repeat;
    background-position: bottom;
@@ -252,7 +291,7 @@ li{list-style-type: none;}
 }
 .item3
 {
-   background-image: url("팀플과제4img/menu03.png");
+   background-image: url("./팀플과제4img/menu03.png");
    background-size: contain;
    background-repeat: no-repeat;
    background-position: bottom;
@@ -260,7 +299,7 @@ li{list-style-type: none;}
 }
 .item4
 {
-   background-image: url("팀플과제4img/menu04.png");
+   background-image: url("./팀플과제4img/menu04.png");
    background-size: contain;
    background-repeat: no-repeat;
    background-position: bottom;
@@ -296,8 +335,9 @@ li{list-style-type: none;}
 {
    
    width: 380px;
-   height: 400px;
+   height: 430px;
    text-align: center;
+   padding: 10px 10px;
    
 }
 .con4Item img
@@ -314,6 +354,7 @@ li{list-style-type: none;}
    margin: 30px 0px;
    font-size: 20px;
    font-weight: 500;
+   
 }
 .con4ItemMore
 {
@@ -324,6 +365,25 @@ li{list-style-type: none;}
    margin-top: 30px;
 
 }
+a{text-decoration :none;color: inherit;}
+
+.con4Item
+{
+   border: 1px solid white;
+}
+.con4Item:hover
+{
+   border: solid 1px black;
+}
+
+.TopContent5
+{
+   background-color: #333;
+   height: 70px;
+   display: flex;
+   justify-content: center;
+}
+
 .appimg
 {width: 100%;}
 
@@ -376,7 +436,6 @@ a{text-decoration :none;color: inherit;}
 {
    margin-left: 40px;
 }
-
 /* ----------------------------------푸터---------------------------- */
 
 .TopContent5
