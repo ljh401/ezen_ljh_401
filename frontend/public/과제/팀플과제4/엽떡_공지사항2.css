@@ -75,24 +75,7 @@
 }
 /* 본문 끝 */
 
-/*하단 숫자  */
-.number{
-   width: 1200px;
-   
-}
 
-.nb_item{
-   width:500px;
-   margin: 0 auto;
-   text-align:center;
-   display: flex;
-   justify-content: space-between;
-   padding: 20px 0px;
-}
-
-.nb_color{
-   color: red;
-}
 /* ----------------------------------헤더---------------------------- */
 .drop_box_content a:hover{
 	color:#ffc107;
@@ -108,7 +91,12 @@
 /* 호버 */
 #header{
 	width: 100%; 
-	border: solid 1px rgba(33, 37, 41, 0.1)}
+	border: solid 1px rgba(33, 37, 41, 0.1);
+	position: sticky;
+	z-index : 3;
+	top : 0px;
+	background-color: #ffffff;
+	}
 .header_box{
 	width: 1200px;
 	margin: 0 auto; 
@@ -162,7 +150,9 @@
 	width: 100%;
 	background-color: #212529;
 	padding: 10px 0px;
-	display: none; 	
+	display: none;
+	position : absolute;
+	opacity: 0.95;  	
 }
 .bbbb{ display: none;  background-color: red}
 .header_top_menu:hover .bbbb{
