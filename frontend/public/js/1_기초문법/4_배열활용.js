@@ -21,8 +21,10 @@ function 추가함수(){ // f start
 	let name = snameInput.value
 			// 3. 변수명.value : 입력된 값 호출
 	// 3. 입력받은 데이터를 배열에 추가
+	// * 유효성 검사 : 이미 존재하면 push 안함, 존재하지 않으면 push
+	학생리스트.indexOf(name) != -1 ? alert('이미 존재하는 학생명입니다') : 학생리스트.push(name)
 	학생리스트.push(name)		
-			// 4. 배열명.push(데이터) : 해당 데이터를 배열에 추가		
+			// 4. 배열명.push(데이터) : 해당 데이터를 배열에 추가	
 	// 4. 배열 출력
 	//document.write(학생리스트)		// 문서에 해당 데이터를 쓰기[기존 데이터 사라짐]
 			// 1. ul 객체 호출
