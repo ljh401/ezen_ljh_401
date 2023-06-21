@@ -13,15 +13,20 @@
 	<div class = "join">
 		<div>
 			<h3>로그인</h3>
-			<input type = "text" placeholder = "아이디 입력">
-			<input type = "password" placeholder = "비밀번호 입력">
-			<input type = "button" value ="로그인">
+			<input  value = "" class = "login_input1" type = "text" placeholder = "아이디 입력">
+			<input  value = "" class = "login_input2" type = "password" placeholder = "비밀번호 입력">
+			<input onclick="login()" type = "button" value ="로그인">
+		
+			<h3>로그인 리스트</h3>
+			<ul class = "loginlist"></ul>
 		</div>
 		<div>
 			<h3>회원가입</h3>
-			<input type = "text" placeholder = "아이디 입력">
-			<input type = "password" placeholder = "비밀번호 입력">
-			<input type = "button" value ="회원가입">
+			<input  class = "signup_input1" type = "text" placeholder = "아이디 입력">
+			<input   class = "signup_input2" type = "password" placeholder = "비밀번호 입력">
+			<input onclick= "signup()" type = "button" value ="회원가입">
+			<h3>회원리스트</h3>
+			<ul class = "signuplist"></ul>
 		</div>
 	</div>
 </body>
