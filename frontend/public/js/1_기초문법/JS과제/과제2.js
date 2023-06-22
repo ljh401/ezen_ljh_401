@@ -76,7 +76,7 @@ let 회원리스트 = []
 	 
 	 signup2listUl.innerHTML = '<li>'+회원리스트+'</li>'
 	 
-	 signupInput2.value=''
+	 
 	 
 	 if(signup1.length < 8 || signup2.length < 8) {
 		  alert('글자수는 8 이상이어야합니다.')
@@ -93,6 +93,7 @@ let 회원리스트 = []
 	 signuplistUl.innerHTML = '<li>'+ 회원리스트 +'</li>'
 	 
 	 signupInput1.value=''
+	 signupInput2.value=''
 	 
 	 
 	 
