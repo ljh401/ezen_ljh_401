@@ -27,41 +27,34 @@
 
 
  */
-let 로그인리스트 = []
-let 회원리스트 = []
+let 아이디 = []
+let 비밀번호 = []
 
  function login(){
-	 
-	 let loginInput2 = document.querySelector(".login_input2")
-	 
-	 let login2 = loginInput2.value
 	 let loginInput1 = document.querySelector(".login_input1")
-	 
+	 let loginInput2 = document.querySelector(".login_input2")
 	 let login1 = loginInput1.value
-	 let loginlistUl = document.querySelector(".loginlist")
-	 let login2listUl = document.querySelector(".loginlist")
+	 let login2 = loginInput2.value
 	 
-	 if(signup1.length < 8 || signup2.length < 8) {
-		  alert('글자수는 8 이상이어야합니다.')
-	  } else {
-		 if (회원리스트.indexOf(signup1) != -1) {
-		  alert('이미 존재하는 아이디입니다.')  } 
+	
+	 
+		 if (아이디.indexOf(login1) != -1 &&  아이디.indexOf(login1) ==비밀번호.indexOf(login2)) {
+		  alert('로그인 성공.')  } 
 	  	else{ 
-			   alert(' 회원가입 성공! ');
-			  회원리스트.push(signup1);  }
-	  		 }
-	 
-	 
-	 
-	 loginlistUl.innerHTML = '<li>'+로그인리스트+'</li>'
+			   alert(' 실패');
+			  회원리스트.push(login1);
+			  loginInput1.value=''
+	 		  loginInput2.value=''
+			    }
+	  		
+	  		 
 	 
 	 loginInput1.value=''
-	 
-	 login2listUl.innerHTML = '<li>'+로그인리스트+'</li>'
-	 
 	 loginInput2.value=''
 	 
- }
+	  		
+	  		 }
+	 
  
  function signup(){
 	
@@ -72,26 +65,16 @@ let 회원리스트 = []
 	 let signup2 = signupInput2.value
 	 
 	 
-	 let signup2listUl = document.querySelector(".signuplist")
-	 
-	 signup2listUl.innerHTML = '<li>'+회원리스트+'</li>'
-	 
-	 
-	 
 	 if(signup1.length < 8 || signup2.length < 8) {
 		  alert('글자수는 8 이상이어야합니다.')
 	  } else {
-		 if (회원리스트.indexOf(signup1) != -1) {
+		 if (아이디.indexOf(signup1) != -1) {
 		  alert('이미 존재하는 아이디입니다.')  } 
 	  	else{ 
 			   alert(' 회원가입 성공! ');
-			  회원리스트.push(signup1);  }
+			  아이디.push(signup1);
+			  비밀번호.push(signup2);  }
 	  		 }
-	  
-	 let signuplistUl = document.querySelector(".signuplist")
-	 
-	 signuplistUl.innerHTML = '<li>'+ 회원리스트 +'</li>'
-	 
 	 signupInput1.value=''
 	 signupInput2.value=''
 	 

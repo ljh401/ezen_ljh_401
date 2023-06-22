@@ -5,3 +5,57 @@
    1. (필수) div 2개를 만들어서 [ 왼쪽은 회원가입 구역 ] [ 오른쪽은 로그인 구역 ]
    2. 그외 이쁘게 꾸며주세요. 
 */
+
+
+	
+.content {
+	display: flex;
+	width : 1200px;
+	height : 800px;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+}
+
+.outBox {
+	
+	width : 500px;
+	height : 300px;
+	display: center;
+	border : solid 1px #80ff00;
+	border-radius : 50px;
+	background-color: #eeeeee;
+
+}
+
+.outBox h3 {
+	text-align : center;
+}
+
+.inBox {
+	width : 400px; height :70px;
+	margin : 0 auto;
+
+}
+
+.login_input1 , .login_input2{
+	margin-bottom : 10px;
+	
+	width : 200px;
+}
+
+.signup_input1 , .signup_input2{
+	margin-bottom : 10px;
+	
+	width : 200px;
+}
+
+.btn {
+	border : solid 1px #ffffff;
+	border-radius : 10px;
+	background-color: #80ff00;
+	font-weight: bold;
+	color : white;
+	margin-left : 50px;
+}
+

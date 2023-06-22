@@ -3,31 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-		<link href = "과제2.css" rel = "stylesheet">
+<link href="과제2.css" rel="stylesheet">
 
 </head>
 <body>
 
-		<script  src = "과제2.js" type="text/javascript"></script>
-		
-	<div class = "join">
-		<div>
+	<div class="content">
+		<div class="outBox">
 			<h3>로그인</h3>
-			<input  value = "" class = "login_input1" type = "text" placeholder = "아이디 입력">
-			<input  value = "" class = "login_input2" type = "password" placeholder = "비밀번호 입력">
-			<input onclick="login()" type = "button" value ="로그인">
-		
-			<h3>로그인 리스트</h3>
-			<ul class = "loginlist"></ul>
+			<div class="inBox">
+				<input value="" class="login_input1" type="text"
+					placeholder="아이디 입력"> <br/><input value="" class="login_input2"
+					type="password" placeholder="비밀번호 입력">
+			</div>
+			<input class = "btn "onclick="login()" type="button" value="로그인">
 		</div>
-		<div>
+		<div class="outBox">
 			<h3>회원가입</h3>
-			<input  class = "signup_input1" type = "text" placeholder = "아이디 입력">
-			<input   class = "signup_input2" type = "password" placeholder = "비밀번호 입력">
-			<input onclick= "signup()" type = "button" value ="회원가입">
-			<h3>회원리스트</h3>
-			<ul class = "signuplist"></ul>
+			<div class="inBox">
+				<input class="signup_input1" type="text" placeholder="아이디 입력"><br/>
+				<input class="signup_input2" type="password" placeholder="비밀번호 입력">
+			</div>
+			<input class = "btn "onclick="signup()" type="button" value="회원가입">
 		</div>
 	</div>
+	
+	<script src="과제2.js" type="text/javascript"></script>
 </body>
 </html>
