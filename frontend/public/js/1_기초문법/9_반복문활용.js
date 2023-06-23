@@ -188,3 +188,13 @@ output = '';
 		 }
 	 
  console.log(output)
+ 
+ // 문제11) 입력받은 줄 수 만큼 * 출력 [ex) 7]
+ 
+ output = '';
+ let line9 = prompt('문제11 :')
+ 	for(let i = 1; i<line9/2; i++) {
+		 for(let s = 1; s<i; s++) {output = '*'}
+		 for(let b = 1; b<1;){}
+	 }
+	 console.log(output)
