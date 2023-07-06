@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<!-- 글등록 페이지 -->
+	<div>
+		<h3>글등록 페이지</h3>
+		작성자 : <input type="text" id="writer" ><br/>
+		비밀번호 : <input type="password" id="pwd" ><br/>
+		제목 : <input type="text" id="title" ><br/>
+		내용 : <textarea id="content" ></textarea><br/>
+		<button onclick="글등록()">등록</button>
+
+	</div>
+
+<!-- 글목록 페이지 -->
+	<div>
+		<h3>글목록 페이지</h3>
+		<table class="outTable">
+		<tr>
+               <th>번호</th>
+               <th>제목</th>
+               <th>작성자</th>
+               <th>작성일</th>
+               <th>조회수</th>
+             </tr>
+		</table>
+		
+	</div>
+<!-- 글보기 페이지 -->
+	<div>
+		<h3>글보기 페이지</h3>
+		<div class="inTable"></div>
+	
+	</div>
+
+	<script src = "과제4.js"type="text/javascript"></script>
+</body>
+</html>
