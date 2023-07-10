@@ -24,7 +24,7 @@
          <!-- 상단 요일 표기 -->
          
          <!-- 일 표기 1 ~ 31/30/29 -->
-         
+      
       </div>
    
    </div> <!-- ------------------------------------------------ -->
@@ -33,10 +33,12 @@
       <div class="modal"> <!-- 모달 상자 -->
          
          <h3> 일정추가 </h3>
-         <textarea rows="5" cols="10"></textarea>
+         <input class="color" type="color">
+         <div class="date"> 2023-07-10 </div>
+         <textarea class="contentInput" rows="5" cols="10"></textarea>
          
          <div class="modalbtns">
-            <button> 일정등록 </button>
+            <button onclick="onWrite()" type="button"> 일정등록 </button>
             <button onclick="closeModal()">  닫기 </button>
          </div>
          
