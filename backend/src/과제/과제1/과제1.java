@@ -3,7 +3,8 @@ package 과제.과제1;
 public class 과제1 {
 
 	public static void main(String[] args) {
-
+			
+		
 	}
 }
 
@@ -20,7 +21,7 @@ public class 과제1 {
 	   리터럴 : 10, 3.14
 	5. 3 (short는 +-32000 이고 char는 0~65000 이므로 형변환X)
 	6. 4
-	7. 6
+	7. 3
 	8. 3
 	9. 1
 	10. 2
