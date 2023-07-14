@@ -11,6 +11,23 @@ public class Level1_2 {
 		System.out.println("-------------------------------------------------------------");
 		/* 문제풀이 위치 */
 		
+		boolean 논리 = true;
+		byte 바이트 = 100;
+		char 문자 = 'A';
+		short 쇼트 = 30000;
+		int 인트 = 2000000000;
+		long 롱 = 40000000000L;
+		float 플롯 = 3.1231232f;
+		double 더블 = 3.123123123d;
+		
+		System.out.printf("%-10s   %15s   %30s\n" , "boolean" , 논리 , "true or false");
+		System.out.printf("%-10s   %15s   %30s\n" , "byte" , 바이트 , "-128 ~ 127");
+		System.out.printf("%-10s   %15s   %30s\n" , "char" , 문자 , "0~65535[ character 1]");
+		System.out.printf("%-10s   %15s   %30s\n" , "short" , 쇼트 , "-32768 ~ 32767");
+		System.out.printf("%-10s   %15s   %30s\n" , "int" , 인트 , "+-2000 million");
+		System.out.printf("%-10s   %15s   %30s\n" , "long" , 롱 , "+-2000 million Excess");
+		System.out.printf("%-10s   %15s   %30s\n" , "float" , 플롯 , "8 decimal places");
+		System.out.printf("%-10s   %15s   %30s\n" , "double" , 더블 , "17 decimal places");
 		/* ----------- */
 	}
 }

@@ -11,6 +11,22 @@ public class Level1_3 {
 		Scanner scanner = new Scanner(System.in);
 		/* 문제풀이 위치 */
 
+		boolean 논리 = scanner.nextBoolean();
+		System.out.println("input boolean : " + 논리);
+		byte 바이트 = scanner.nextByte();
+		System.out.println("input byte : " + 바이트);
+		char 문자 = scanner.next().charAt(0);
+		System.out.println("input char : " + 문자);
+		short 쇼트 = scanner.nextShort();
+		System.out.println("input short : " + 쇼트);
+		int 인트 = scanner.nextInt();
+		System.out.println("input int : " + 인트);
+		long 롱 = scanner.nextLong();
+		System.out.println("input long : " + 롱);
+		float 플롯 = scanner.nextFloat();
+		System.out.println("input float : " + 플롯);
+		double 더블 = scanner.nextDouble();
+		System.out.println("input double : " + 더블);
 		/* ----------- */
 	}
 }

@@ -4,7 +4,26 @@ public class Level1_1 {
 	
 	public static void main(String[] args) {
 		System.out.println(" >> Level1_1 answer >> \n");
+		
 		/* 문제풀이 위치 */
+		boolean 논리 = true;
+		byte 바이트 = 100;
+		char 문자 = 'A';
+		short 쇼트 = 30000;
+		int 인트 = 2000000000;
+		long 롱 = 40000000000L;
+		float 플롯 = 3.1231232f;
+		double 더블 = 3.123123123d;
+		
+		System.out.println("boolean : "+ 논리);
+		System.out.println("byte : "+바이트);
+		System.out.println("char : "+문자);
+		System.out.println("short : "+쇼트);
+		System.out.println("int : "+인트);
+		System.out.println("long : "+롱);
+		System.out.println("float : "+플롯);
+		System.out.println("double : "+더블);
+		
 		
 		/* ----------- */
 	}
