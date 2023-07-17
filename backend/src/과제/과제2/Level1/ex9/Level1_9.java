@@ -1,7 +1,7 @@
 package 과제.과제2.Level1.ex9;
 
 import java.time.LocalDateTime;
-import java.util.Random;
+
 import java.util.Scanner;
 
 public class Level1_9 {
@@ -18,7 +18,14 @@ public class Level1_9 {
 		System.out.println("국어\t영어\t수학\t합계\t평균\t3배수\t8배수\t홀짝\t결과");
 		
 		/* 문제풀이 위치 */
-
+		  int 총점 = (kor + eng + mat);
+	      float 평균 = ((kor + eng + mat)/3);
+	      boolean 삼배수 =((kor + eng + mat)%3==0);
+	      boolean 팔배수 =((kor + eng + mat)%8==0);
+	      String 홀짝 = ((kor + eng + mat)%2==0 ? "짝수" : "홀수");
+	      String 결과 = (kor + eng + mat)>=65 ? "합격" : "불합격" ;
+	      System.out.printf("%d\t%d\t%d\t%d\t%.1f\t%b\t%b\t%s\t%s" ,kor, eng, mat, 총점, 평균, 삼배수, 팔배수, 홀짝, 결과);
+			
 		/* ----------- */
 	}
 }

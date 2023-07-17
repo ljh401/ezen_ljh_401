@@ -1,5 +1,7 @@
 package 과제.과제2.Level1.ex5;
 
+
+
 public class Level1_5 {
 	
 	public static void main(String[] args) {
@@ -12,7 +14,18 @@ public class Level1_5 {
 		float value5 = 3.123123123F;
 		
 		/* 문제풀이 위치 */
-	
+		short 쇼트 = value1;
+		int 인트 = value2;
+		long 롱 = value3;
+		float 플롯 = value4;
+		double 더블 = value5;
+		
+		System.out.println("byte -> short : " + 쇼트);
+		System.out.println("short -> int : " + 인트);
+		System.out.println("int -> long : " + 롱);
+		System.out.println("long -> float : " + 플롯);
+		System.out.println("float -> double : " + 더블);
+		
 		/* ----------- */
 	}
 }

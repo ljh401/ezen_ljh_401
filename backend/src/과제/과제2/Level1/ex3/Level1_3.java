@@ -10,23 +10,38 @@ public class Level1_3 {
 		System.out.println(" >> answer time : " + LocalDateTime.now() +" >> \n" );
 		Scanner scanner = new Scanner(System.in);
 		/* 문제풀이 위치 */
-
+		System.out.print("input boolean : ");
 		boolean 논리 = scanner.nextBoolean();
-		System.out.println("input boolean : " + 논리);
+		
+		System.out.print("input byte : ");
 		byte 바이트 = scanner.nextByte();
-		System.out.println("input byte : " + 바이트);
+		
+		System.out.print("input char : ");
 		char 문자 = scanner.next().charAt(0);
-		System.out.println("input char : " + 문자);
+		
+		System.out.print("input short : ");
 		short 쇼트 = scanner.nextShort();
-		System.out.println("input short : " + 쇼트);
+		
+		System.out.print("input int : ");
 		int 인트 = scanner.nextInt();
-		System.out.println("input int : " + 인트);
+	
+		System.out.print("input long : ");
 		long 롱 = scanner.nextLong();
-		System.out.println("input long : " + 롱);
+		
+		System.out.print("input float : ");
 		float 플롯 = scanner.nextFloat();
-		System.out.println("input float : " + 플롯);
+		
+		System.out.print("input double : ");
 		double 더블 = scanner.nextDouble();
-		System.out.println("input double : " + 더블);
+		
+		System.out.print("output boolean : "+논리+"\n");
+		System.out.print("output byte : "+바이트+"\n");
+		System.out.print("output char :"+문자+"\n");
+		System.out.print("output short : "+쇼트+"\n");
+		System.out.print("output int : "+인트+"\n");
+		System.out.print("output long : "+롱+"\n");
+		System.out.print("output float : "+플롯+"\n");
+		System.out.print("output double : "+더블);
 		/* ----------- */
 	}
 }

@@ -82,10 +82,10 @@ public class 연산20문제 {
 		
 		//------ 문제11 여기에 풀이-------//
 		
-		double 실수1 = scanner.nextDouble();
-		double 실수2 = scanner.nextDouble();
 		
-		System.out.println((실수1/실수2)*100);
+		System.out.println("실수1:"); double 실수1=scanner.nextDouble();
+	    System.out.println("실수2:"); double 실수2=scanner.nextDouble();
+	    System.out.printf("실수2에서 실수1비율 계산:%.6f %% \n",(실수1/실수2) * 100.0);
 		
 		//------ 문제12 여기에 풀이-------//
 		

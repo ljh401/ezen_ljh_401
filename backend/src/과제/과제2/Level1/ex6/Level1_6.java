@@ -13,7 +13,17 @@ public class Level1_6 {
 		double value5 = 3.123123123;	
 		
 		/* 문제풀이 위치 */
-
+		byte 바이트 = (byte)value1;
+		short 쇼트 = (short)value2;
+		int 인트 = (int)value3;
+		long 롱 = (long)value4;
+		float 플롯 = (float)value5;
+		
+		System.out.println("byte <- short : " + 바이트);
+		System.out.println("short <- int : " + 쇼트);
+		System.out.println("int <- long : " + 인트);
+		System.out.println("long <- float : " + 롱);
+		System.out.println("float <- double : " + 플롯);
 		/* ----------- */
 	}
 }
