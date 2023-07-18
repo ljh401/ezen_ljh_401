@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class If문제7문제 {
 
 	public static void main(String[] args) {
-		
+
 		/* -------문제1----- */
 				
 				Scanner scanner = new Scanner(System.in);
@@ -53,29 +53,84 @@ public class If문제7문제 {
 				
 				int temp;
 				
-				if( 정수6 > 정수7) { // 정수6 : 7 정수7 : 3 정수8 : 5
-					temp = 정수6; // temp = 7
-					정수6 = 정수7; // 3을 정수6에 : 정수6 =3
+				if( 정수6 > 정수7) { 
+					temp = 정수6; 
+					정수6 = 정수7; 
 					정수7 = temp;
 				}
 				
+				
 				if ( 정수7 > 정수8) {
-					temp = 정수7; // temp 7
-					정수7 = 정수8; // 
+					temp = 정수7; 
+					정수7 = 정수8; 
 					정수8 = temp;
 				}
+				
+				if ( 정수6 > 정수8) {
+					temp = 정수6;
+					정수6 = 정수8;
+					정수8 = temp;
+				}
+				
+				System.out.printf("문제3 : %3d %3d %3d \n" , 정수6, 정수7,정수8);
 				
 				
 		
 		/* -------문제4----- */
-		
+				
+				int 점수 = scanner.nextInt();
+				
+				if( 점수 >= 90) { System.out.println("합격");}
+				else if( 점수 < 90) { System.out.println("불합격");}
+				
 		/* -------문제5----- */
 		
+				
+				int 점수2 = scanner.nextInt();
+				
+				if( 점수 >= 90) { System.out.println("A");}
+				else if( 점수 >= 80) { System.out.println("B");}
+				else if( 점수 >= 70) { System.out.println("C");}
+				else { System.out.println("재시험");}
+				
 		/* -------문제6----- */
-		
+	
+				int 국어 = scanner.nextInt();
+				int 영어 = scanner.nextInt();
+				int 수학 = scanner.nextInt();
+				int 평균 = (국어 + 영어 + 수학) /3;
+				
+				 if(평균>=90) {
+			         if(국어==100) {
+			        	 System.out.println("국어 우수");
+			        	 } else if(영어==100) {
+			        	 System.out.println("영어 우수");
+			        	 } else if(수학==100) {
+			        	 System.out.println("수학 우수");
+			        	 }
+				 } else if (평균>=80) {
+			         if(국어==90) {
+			        	 System.out.println("국어 장려");
+			        	 } else if(영어==90) {
+			        	 System.out.println("영어 장려");
+			        	 } else if(수학==90) {
+			        	 System.out.println("수학 장려");
+			        	 }
+			      } else {
+			         System.out.println("재시험");
+			      }
+
 		/* -------문제7----- */
-		
-		
+				 System.out.println("아이디 : ");
+				 String 아이디 = scanner.next();
+				 System.out.println("비밀번호 : ");
+				 String 비밀번호 = scanner.next();
+				 
+	
+				 
+				 if( 아이디.equals("admin") && 비밀번호.equals("1234")) {
+					 System.out.println("로그인 성공!");
+				 } else { System.out.println(" 로그인 실패!"); }
 	}
 	
 }
