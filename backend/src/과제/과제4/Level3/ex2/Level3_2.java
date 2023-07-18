@@ -12,11 +12,30 @@ public class Level3_2 {
 		
 		
 		/* 문제풀이 위치 */
+		int 횟수 = 1;
+			
+		String 코딩;
+			while (true) {
+				System.out.print(횟수 + "회 입력 : ");
+				코딩 = scanner.next();
+				if ( 코딩.equals("end")) {
+					System.out.println("안내) 프로그램 종료 합니다 [총 " + (횟수-1) + "]회 입력");
+					
+				} else {
+					횟수 += 1;
+					System.out.println(횟수 + "회 입력 : ");
+					
+				 break;
+				}	
+				
+			}
+			
 		
 		/* ----------- */
 
 	}
-}
+			}
+
 /* 
 	[문제] 
 		그림과 같이 무한적으로 문자열을 입력 받다가 end 입력시 
