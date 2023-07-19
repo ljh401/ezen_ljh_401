@@ -14,7 +14,15 @@ public class Level3_5 {
 		String authNumber = "";
 		
 		/* 문제풀이 위치 */
+		Random random = new Random();
 		
+		
+		for(int i=1 ; i<=6 ; i++ ) {
+			
+			int 인증번호 = random.nextInt(10);
+			authNumber += 인증번호;
+		}
+		System.out.print("인증번호 : "+authNumber);
 		/* ----------- */
 
 	}

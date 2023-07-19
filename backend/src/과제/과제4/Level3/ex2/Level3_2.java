@@ -12,23 +12,23 @@ public class Level3_2 {
 		
 		
 		/* 문제풀이 위치 */
-		int 횟수 = 1;
+		boolean run = true;
+		int i = 0;
+		while (run) {
 			
-		String 코딩;
-			while (true) {
-				System.out.print(횟수 + "회 입력 : ");
-				코딩 = scanner.next();
-				if ( 코딩.equals("end")) {
-					System.out.println("안내) 프로그램 종료 합니다 [총 " + (횟수-1) + "]회 입력");
-					
-				} else {
-					횟수 += 1;
-					System.out.println(횟수 + "회 입력 : ");
-					
-				 break;
-				}	
+			if(i>=0) {
+				++i;
+				System.out.print(i+" 회 입력 :");
+				String 입력 = scanner.next();
 				
+				if(입력.equals("end")) {
+					System.out.println("안내)프로그램 종료합니다.");
+					System.out.println("[총 "+(i-1)+" 회 입력]");
+					run = false;
+				}
 			}
+			
+		}
 			
 		
 		/* ----------- */

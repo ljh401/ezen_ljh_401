@@ -14,8 +14,41 @@ public class Level3_3 {
 		int july3 = 5183400;
 		int july4 = 11738700;
 		
+	
+		
 		/* 문제풀이 위치 */
 		
+		char 네모 ='■';
+		
+		System.out.println("--------7월 매출액---------");
+			
+		System.out.print("1주차 : ");	
+		for(int i = 1 ; i<=july1/1000000 ; i++ ) {
+			System.out.print(네모);  
+		}
+		int one= july1/10000;
+		System.out.println(one+"만원");
+		
+		System.out.print("2주차 : ");	
+		for(int i = 1 ; i<=july2/1000000 ; i++ ) {
+			System.out.print(네모);  
+		}
+		int two= july2/10000;
+		System.out.println(two+"만원");
+		
+		System.out.print("3주차 : ");	
+		for(int i = 1 ; i<=july3/1000000 ; i++ ) {
+			System.out.print(네모);  
+		}
+		int three= july3/10000;
+		System.out.println(three+"만원");
+		
+		System.out.print("4주차 : ");	
+		for(int i = 1 ; i<=july4/1000000 ; i++ ) {
+			System.out.print(네모);  
+		}
+		int four= july4/10000;
+		System.out.println(four+"만원");
 		/* ----------- */
 	}
 }

@@ -13,6 +13,67 @@ public class Level3_6 {
 		
 		/* 문제풀이 위치 */
 		
+		String 좌석1 = " ";
+		String 좌석2 = " ";
+		String 좌석3 = " ";
+		String 좌석4 = " ";
+		String 좌석5 = " ";
+		String 좌석6 = " ";
+		
+		while (true) {
+			
+			System.out.println(" 메뉴 : 1.예약하기 2.예약취소 3.예약현황 ");
+			int 메뉴 = scanner.nextInt();
+			
+			if( 메뉴 == 1) {
+				System.out.println("예약좌석 선택");
+				System.out.println("[1][2][3]\n[4][5][6]");
+				int 예약 = scanner.nextInt();
+				
+				if( 예약 == 1) {
+					if(좌석1.equals(" ")) {System.out.println("예약성공");
+					좌석1 = "예약";}  else {System.out.println("예약실패");}
+				}
+				if( 예약 == 2) {
+					if(좌석2.equals(" ")) {System.out.println("예약성공");
+					좌석2 = "예약";}  else {System.out.println("예약실패");}
+				}
+				if( 예약 == 3) {
+					if(좌석3.equals(" ")) {System.out.println("예약성공");
+					좌석3 = "예약";}  else {System.out.println("예약실패");}
+				}
+				if( 예약 == 4) {
+					if(좌석4.equals(" ")) {System.out.println("예약성공");
+					좌석4 = "예약";}  else {System.out.println("예약실패");}
+				}
+				if( 예약 == 5) {
+					if(좌석5.equals(" ")) {System.out.println("예약성공");
+					좌석5 = "예약";}  else {System.out.println("예약실패");}
+				}
+				if( 예약 == 6) {
+					if(좌석6.equals(" ")) {System.out.println("예약성공");
+					좌석6 = "예약";}  else {System.out.println("예약실패");}
+				}
+				
+				
+				
+			}
+			
+			if (메뉴 == 2) {
+				
+			}
+			
+			if (메뉴 == 3) {
+				
+			}
+		}
+		
+		
+		
+		
+
+		
+		
 		/* ----------- */
 
 	}
@@ -31,7 +92,7 @@ public class Level3_6 {
 	 		1. 예약할 좌석을 선택한다.
 	 		2. 만약에 비어 있으면 예약성공 아니면 예약 실패 
 	 	예약취소 출력예시 )
-	 		1. 예약할 취소할 좌석을 선택한다.
+	 		1.  취소할 좌석을 선택한다.
 	 	예약현황 출력예시 )
 	 		* 3개씩 2줄로 출력합니다.
 			[ 예약 ]	[ ]	[ ]
