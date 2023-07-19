@@ -20,58 +20,94 @@ public class Level3_6 {
 		String 좌석5 = " ";
 		String 좌석6 = " ";
 		
-		while (true) {
+		while (true) {//wh s
+			System.out.println("--------매뉴를 선택하세요-------");
+			System.out.println("1.예약하기 2.예약취소 3.예약현황");
+			int 선택 = scanner.nextInt();
 			
-			System.out.println(" 메뉴 : 1.예약하기 2.예약취소 3.예약현황 ");
-			int 메뉴 = scanner.nextInt();
-			
-			if( 메뉴 == 1) {
-				System.out.println("예약좌석 선택");
-				System.out.println("[1][2][3]\n[4][5][6]");
+			if( 선택 == 1 ) {//if1 s
+				System.out.println("예약할 좌석을 골라주세요\n");
+				System.out.println("[1] [2] [3]\n[4] [5] [6]");
 				int 예약 = scanner.nextInt();
-				
-				if( 예약 == 1) {
-					if(좌석1.equals(" ")) {System.out.println("예약성공");
-					좌석1 = "예약";}  else {System.out.println("예약실패");}
+				if(예약==1) {
+					if(좌석1.equals(" ")){System.out.println("예약성공"); 좌석1="예약";}
+					else {System.out.println("예약실패");}
 				}
-				if( 예약 == 2) {
-					if(좌석2.equals(" ")) {System.out.println("예약성공");
-					좌석2 = "예약";}  else {System.out.println("예약실패");}
+				if(예약==2) {
+					if(좌석2.equals(" ")){System.out.println("예약성공"); 좌석2="예약";}
+					else {System.out.println("예약실패");}
 				}
-				if( 예약 == 3) {
-					if(좌석3.equals(" ")) {System.out.println("예약성공");
-					좌석3 = "예약";}  else {System.out.println("예약실패");}
+				if(예약==3) {
+					if(좌석3.equals(" ")){System.out.println("예약성공"); 좌석3="예약";}
+					else {System.out.println("예약실패");}
 				}
-				if( 예약 == 4) {
-					if(좌석4.equals(" ")) {System.out.println("예약성공");
-					좌석4 = "예약";}  else {System.out.println("예약실패");}
+				if(예약==4) {
+					if(좌석4.equals(" ")){System.out.println("예약성공"); 좌석4="예약";}
+					else {System.out.println("예약실패");}
 				}
-				if( 예약 == 5) {
-					if(좌석5.equals(" ")) {System.out.println("예약성공");
-					좌석5 = "예약";}  else {System.out.println("예약실패");}
+				if(예약==5) {
+					if(좌석5.equals(" ")){System.out.println("예약성공"); 좌석5="예약";}
+					else {System.out.println("예약실패");}
 				}
-				if( 예약 == 6) {
-					if(좌석6.equals(" ")) {System.out.println("예약성공");
-					좌석6 = "예약";}  else {System.out.println("예약실패");}
+				if(예약==6) {
+					if(좌석6.equals(" ")){System.out.println("예약성공"); 좌석6="예약";}
+					else {System.out.println("예약실패");}
 				}
-				
-				
-				
-			}
+			}//if1 e
 			
-			if (메뉴 == 2) {
+			if(선택==2) {//if 2 s
+				System.out.println("취소할 좌석을 선택해주세요");
+				System.out.println("[1] [2] [3]\n[4] [5] [6]");
+				int 취소 = scanner.nextInt();
+				if(취소==1) {
+					if(좌석1.equals("예약")) {
+						좌석1=" "; System.out.println("취소되었습니다.");
+					}
+					else {System.out.println("빈좌석입니다.");}
+				}
+				if(취소==2) {
+					if(좌석2.equals("예약")) {
+						좌석2=" "; System.out.println("취소되었습니다.");
+					}
+					else {System.out.println("빈좌석입니다.");}
+				}
+				if(취소==3) {
+					if(좌석3.equals("예약")) {
+						좌석3=" "; System.out.println("취소되었습니다.");
+					}
+					else {System.out.println("빈좌석입니다.");}
+				}
+				if(취소==4) {
+					if(좌석4.equals("예약")) {
+						좌석4=" "; System.out.println("취소되었습니다.");
+					}
+					else {System.out.println("빈좌석입니다.");}
+				}
+				if(취소==5) {
+					if(좌석5.equals("예약")) {
+						좌석5=" "; System.out.println("취소되었습니다.");
+					}
+					else {System.out.println("빈좌석입니다.");}
+				}
+				if(취소==6) {
+					if(좌석6.equals("예약")) {
+						좌석6=" "; System.out.println("취소되었습니다.");
+					}
+					else {System.out.println("빈 좌석입니다.");}
+				}
+			}//if 2 e
 				
-			}
-			
-			if (메뉴 == 3) {
-				
-			}
-		}
-		
-		
-		
-		
+			if(선택==3) {
+				System.out.println("예약현황입니다.");
+				System.out.println("["+좌석1+"] ["+좌석2+"] ["+좌석3+"]\n ["+좌석4+"] ["+좌석5+"] ["+좌석6+"]");
 
+			}
+		}//wh e
+		
+		
+		
+		
+		
 		
 		
 		/* ----------- */
