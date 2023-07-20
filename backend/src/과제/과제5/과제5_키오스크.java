@@ -9,27 +9,49 @@ public class 과제5_키오스크 {
 		Scanner scanner = new Scanner(System.in);
 		
 		String 재고관리 = "";
-		/* 콜라재고/ 환타재고/ 사이다재고 // 콜라가격/환타가격/사이다가격// 콜라바구니/ 환타바구니/ 사이다바구니/  */
-		재고관리 = "10,10,10/300,200,100/0,0,0";
+		
+		
+		// 1. 9개 변수가 가지고 있떤 상태/값/데이터 한 변수에 저장
+		재고관리 = "10,10,10/0,0,0/300,200,100"; // 재고~ 바구니~ 가격~
+		System.out.println(재고관리);
 		/* ----------- */
+		
+		
+		
+		
+		
 		
 		while(true) {
 			System.out.println("\n\n-------------------- 메뉴 ------------------- ");
 			System.out.println("1.콜라[300] 2.환타[200] 3.사이다[100] 4.결제");
 			System.out.print(">>>>>> 선택 : "); int ch = scanner.nextInt();
 			
-			/* 문제풀이 위치 */
-		
+/* 문제풀이 위치 */
+			
+			String 콜라정보 = 재고관리.split("/")[0];
+			String 환타정보 = 재고관리.split("/")[1];
+			String 사이다정보 = 재고관리.split("/")[2];
+			
+			int 콜라재고 = Integer.parseInt(콜라정보.split(",")[0]);
+			int 환타재고 = Integer.parseInt(환타정보.split(",")[1]);
+			int 사이다재고 = Integer.parseInt(사이다정보.split(",")[2]);
+			
+			int 콜라바구니 = Integer.parseInt(콜라정보.split(",")[0]);
+			int 환타바구니 = Integer.parseInt(환타정보.split(",")[1]);
+			int 사이다바구니 = Integer.parseInt(사이다정보.split(",")[2]);
+			
+			int 콜라가격 = Integer.parseInt(콜라정보.split(",")[0]);
+			int 환타가격 = Integer.parseInt(환타정보.split(",")[1]);
+			int 사이다가격 = Integer.parseInt(사이다정보.split(",")[2]);
+			
+			
 			if(ch == 1) {
-				/*if( 콜라재고 > 0) {*/
-					int 콜라바구니 = Integer.parseInt((재고관리.split("/")[2].split(",")[0]) +=1);
-					재고관리 = Integer.toString(콜라바구니);
-					System.out.println(재고관리);
-					
-					/*콜라재고 -= 1;*/
+				if( 콜라재고 > 0) {
+					콜라바구니 += 1;
+					콜라재고 -= 1;
 
 					
-				} /*else {System.out.println("재고부족");}
+				} else {System.out.println("재고부족");}
 			} else if( ch == 2) {
 				if( 환타재고 > 0) {
 					환타바구니 += 1;
@@ -98,8 +120,9 @@ public class 과제5_키오스크 {
 					환타바구니 = 0;
 					사이다바구니 = 0;
 					
-				} */
-				/* } */
+				} 
+			}
+			재고관리 = 콜라재고+","+환타재고+","+사이다재고+"/"+콜라바구니+","+환타바구니+","+사이다바구니+"/"+콜라가격+","+환타가격+","+사이다가격;
 			/* ----------- */
 			
 		} // while end 
