@@ -131,7 +131,7 @@ public class 연산20문제 {
 		//------ 문제17 여기에 풀이-------//
 		
 		int x = 10;
-		int y = x-- + 5 + --x; // 10+5+9
+		int y = x-- + 5 + --x; // 10+5+8
 		System.out.printf(" x의 값 : %d , y의값 :  %d ", x, y);
 		
 		// x= 8 ,y =23
