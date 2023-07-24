@@ -1,8 +1,8 @@
-package 과제.과제5;
+package 복습.part1;
 
 import java.util.Scanner;
 
-public class 과제5_키오스크 {
+public class 키오스크 {
 	
 	public static void main(String[] args) {
 		
@@ -20,7 +20,8 @@ public class 과제5_키오스크 {
 			
 			System.out.println("\n\n-------------------- 메뉴 ------------------- ");
 			System.out.println("1.콜라[300] 2.환타[200] 3.사이다[100] 4.결제");
-			System.out.print(">>>>>> 선택 : "); int ch = scanner.nextInt();
+			System.out.print(">>>>>> 선택 : "); 
+			int ch = scanner.nextInt();
 			
 			
 			
