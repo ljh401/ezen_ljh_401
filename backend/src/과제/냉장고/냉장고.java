@@ -16,4 +16,6 @@ public class 냉장고 {
 	void 식품빼기( int 식품번호 ) {
 		식품리스트.remove(식품번호-1);
 	}
+	
+	public 냉장고() {}
 }
