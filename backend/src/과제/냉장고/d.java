@@ -1,4 +1,4 @@
-package 과제.과제10;
+package 과제.냉장고;
 
 import java.util.Arrays;
 import java.util.Scanner;
