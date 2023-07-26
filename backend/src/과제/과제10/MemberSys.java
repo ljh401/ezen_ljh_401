@@ -11,8 +11,7 @@ public class MemberSys {
 	static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		
-		Member[] memberList = new Member[100];
+
 	
 		while(true) {
 			
@@ -63,10 +62,10 @@ public class MemberSys {
 		
 		
 		for(int i = 0; i<memberList.length; i++) {
-			if(memberList[i].getId().equals(id) 
+			if(memberList[i] !=null 
 					&& memberList[i].getPassword().equals(password)
-					&& memberList[i] !=null) {
-				
+					&& memberList[i].getId().equals(id)) {
+			
 				
 				login = i;
 				break;
@@ -82,26 +81,40 @@ public class MemberSys {
 		System.out.println("전화번호 :"); String phone = sc.next();
 		
 		for(int i = 0; i<memberList.length; i++) {
-			if(memberList[i].getName().equals(name) 
+			if(memberList[i] !=null &&
+					memberList[i].getName().equals(name) 
 					&& memberList[i].getPhone().equals(phone)) {
 				
 				System.out.println("아이디 찾았습니다." + memberList[i].getId());
-				break;
+				return;
 			}
 		}
-		
+		System.out.println("아이디 찾기 실패");
 	}
 	static void 비밀번호찾기 () { 
 		System.out.println("아이디 :"); String id = sc.next();
 		System.out.println("전화번호 :"); String phone = sc.next();
 		
 		for(int i = 0; i<memberList.length; i++) {
-			if(memberList[i].getId().equals(id) 
+			if(memberList[i] !=null &&
+					memberList[i].getId().equals(id) 
 					&& memberList[i].getPhone().equals(phone)) {
+						
+				String password = "";
 				
+				for(int j = 0; j<4; j++ ) {
+					password += (char)((int)(Math.random()*26)+65);
+				}
+				System.out.println(password);
+				memberList[i].setPassword(password);
+				return;
 			}
 		}
+		
+		System.out.println("못찾았습니다");
 	}
+
+	
 	
 }
 /*
