@@ -52,7 +52,7 @@ public class Part3 {
 					}
 					
 				}
-				System.out.println(총가격);
+				System.out.println("총가격 : "+총가격);
 			}
 				
 			
