@@ -1,16 +1,19 @@
 package 과제.과제10;
-
-import java.util.Arrays;
+						 // 현재 클래스에서 같은 패키지에 있는 클래스 호출 = 생략
+						 //java.lang 기본 패키지 이므로 생략 ( String , System 등)
+import java.util.Arrays; // 현재 클래스에서 다른 패키지에 있는 클래스 호출 = import
 import java.util.Scanner;
-
+// vs
+// import java.util.*;	 // 해당 패키지내 모든 클래스 호출
 
 
 public class MemberSys {
 	
 	static Member[] memberList = new Member[100];
 	static Scanner sc = new Scanner(System.in);
-	
-	public static void main(String[] args) {
+	static int login = -1;
+	public static void main(String[] args) { // main함수에 static  = 우선할당(먼저)
+		// 인스턴스 멤버 : 객체 생성해서 할당후 사용
 
 	
 		while(true) {
@@ -58,7 +61,7 @@ public class MemberSys {
 		System.out.println("-----------로그인----------");
 		System.out.println("아이디 :"); String id = sc.next();
 		System.out.println("비밀번호 :"); String password = sc.next();
-		int login = -1;
+		
 		
 		
 		for(int i = 0; i<memberList.length; i++) {
@@ -66,7 +69,6 @@ public class MemberSys {
 					&& memberList[i].getPassword().equals(password)
 					&& memberList[i].getId().equals(id)) {
 			
-				
 				login = i;
 				break;
 			}
