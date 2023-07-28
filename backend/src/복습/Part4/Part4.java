@@ -37,9 +37,9 @@ public class Part4 {
 					int basket = Integer.parseInt(재고관리[i].split(",")[3]);
 					
 					if(stock == 0) {
-						System.out.println((i+1) + ":" + name + "[재고없음]");
+						System.out.print((i+1) + ":" + name + "[재고없음]");
 					} else {
-						System.out.println((i+1) + ":" + name + "["+price+"]");
+						System.out.print((i+1) + ":" + name + "["+price+"]");
 					}
 				}
 			} // for end
@@ -67,6 +67,31 @@ public class Part4 {
 	        	int basket = Integer.parseInt( 재고관리[ch-1].split(",")[3]); // 바구니
 	        	
 	        	if(stock > 0) {stock--; basket++; System.out.println(name + "제품 담았습니다.");}
+	        	else {System.out.println(name + "제품의 재고가 부족합니다.");}
+	        	
+	        	재고관리[ch-1] = name +","+ stock +","+ price +","+ basket;
+	        	
+	        	String outStr = "";
+	        	for(int i = 0; i<재고관리.length; i++) {
+	        		outStr+= 재고관리[i].split(",")[0]+","+재고관리[i].split(",")[1]+","+
+	        				재고관리[i].split(",")[2]+","+재고관리[i].split(",")[3]+"\n";
+	        	}
+	        	FileOutputStream fileOutputStream2 = new FileOutputStream(filePath);
+	        	fileOutputStream2.write(outStr.getBytes());
+			}
+			
+			else if(ch==0) {
+				System.out.println("제품명"+"\t"+"수량"+"\t"+"가격");
+				
+				for(int i =0; i<재고관리.length; i++) {
+					int basket = Integer.parseInt(재고관리[i].split(",")[1]);
+					int price = Integer.parseInt(재고관리[i].split(",")[2]);
+					String name = 재고관리[i].split(",")[3];
+					
+					if(basket > 0) {
+						System.out.println(name+"\t"+ basket+"\t"+basket*price +"\n");
+					}
+				}
 			}
 		}
 	}
