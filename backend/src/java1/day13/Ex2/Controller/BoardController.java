@@ -55,8 +55,7 @@ public class BoardController {
       
       BoardDao.getInstance().boardDtoList.remove(index);
       
-      return true
-    		  ;
+      return true;
    }
    
    
