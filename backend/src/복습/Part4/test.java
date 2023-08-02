@@ -37,7 +37,7 @@ public class test {
 						System.out.println((i+1) + name + "재고없음");
 					} else {
 						System.out.println((i+1) + name + price);
-					}
+					 }
 				}
 			}
 			
