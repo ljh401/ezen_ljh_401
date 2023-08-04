@@ -324,3 +324,45 @@ create table product(
 # 1:M 관계 할 경우 M테이블 FK 필드 선언/설정
 
 drop table if exists ordertable;
+
+# jdbc와 연결할 db선언
+# Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sqldb4web","root","1234");
+drop database if exists sqldb4web;
+create database sqldb4web;
+use sqldb4web;
+drop table if exists member;
+create table member (
+	mno int not null unique auto_increment,
+	mid varchar(20) not null unique,
+	mpw varchar(20) not null,
+	mname varchar(20) not null,
+	mphone varchar(13) not null unique,
+	primary key(mno)
+);
+
+select * from member;
+
+insert into member(mid,mpw,mname,mphone)values('ezen','1234','이젠','123-123-1234');
+
+# 로그인 [ 테이블에 값 검색(select) ]
+select * from member;
+select mid, mpw from member; -- mid,mpw필드 레코드 검색
+# 아이디와 패스워드가 일치한 레코드 검색
+select mid,mpw from member where mid = '123';	# 만약에 mid필드에 '123'문자열이 있는 레코드 검색
+select mid,mpw from member where mid = '234' and mpw = '234';	# 만약에 mid필드가 '234'이면서 mpw필드가 '234인 레코드 검색
+
+/*
+	1. 테이블의 필드에 해당하는 레코드 검색
+		select 필드명 from 테이블명			: 해당 필드의 레코드 검색
+        select 필드명, 필드명, 필드명 from 테이블 : 여러 개 필드들의 레코드 검색
+        select * from 테이블명				: 모든 필드[*] 레코드 검색
+	2. 필드에 조건 추가		[ where 조건절 (필드명 연산자 값) ]
+		select 필드명 			from 테이블명 where 조건
+        select 필드명,필드명,필드명 	from 테이블명 where 조건
+        select * 				from 테이블명 where 조건
+    
+*/
+
+
+
+
