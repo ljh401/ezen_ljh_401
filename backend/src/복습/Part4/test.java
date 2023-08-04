@@ -19,7 +19,7 @@ public class test {
 			FileInputStream fileInputStream = new FileInputStream(filePath);
 			File file = new File(filePath);
 			
-			byte[] inByteArray = new byte[(int)filePath.length()];
+			byte[] inByteArray = new byte[(int)file.length()];
 			fileInputStream.read(inByteArray);
 			String fileInfo = new String(inByteArray);
 			System.out.println(fileInfo);
@@ -37,7 +37,7 @@ public class test {
 						System.out.println((i+1) + name + "재고없음");
 					} else {
 						System.out.println((i+1) + name + price);
-					}
+					 }
 				}
 			}
 			
@@ -47,13 +47,11 @@ public class test {
 				System.out.print("제품명 :"); String name = scanner.next();
 				System.out.print("초기재고 :"); int stock = scanner.nextInt();
 				System.out.print("가격 :"); int price = scanner.nextInt();
-				
-				int basket = 0;
+						int basket = 0;
 				String outStr = name+","+ stock+","+  price +","+basket+"\n";
-				
 				fileOutputStream.write(outStr.getBytes());
 				System.out.println("제품 등록");
-			}
+				}
 			
 			else if(ch> 0 && ch<= 재고관리.length) {
 				String name = 재고관리[ch-1].split(",")[0];
@@ -66,6 +64,7 @@ public class test {
 				
 				재고관리[ch-1]  = name+","+ stock +","+price+","+ basket;
 				
+				
 				String outStr = "";
 				for(int i = 0 ; i<재고관리.length; i++	) {
 					outStr += 재고관리[i].split(",")[0] +","+재고관리[i].split(",")[1]+","+
@@ -73,7 +72,7 @@ public class test {
 				}
 				
 				FileOutputStream fileOutputStream2 = new FileOutputStream(filePath);
-				fileOutputStream2.write(outStr.getBytes());
+				fileOutputStream2.write(outStr.getBytes() );
 			}
 			
 			else if ( ch == 0) {
