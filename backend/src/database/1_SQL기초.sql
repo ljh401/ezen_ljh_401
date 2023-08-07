@@ -366,3 +366,70 @@ select mid,mpw from member where mid = '234' and mpw = '234';	# 만약에 mid필
 
 
 
+# jdbc와 연결할 db선언
+# Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sqldb4web","root","1234");
+drop database if exists sqldb4web;
+create database sqldb4web;
+use sqldb4web;
+drop table if exists member;
+create table member (
+	mno int not null unique auto_increment,
+	mid varchar(20) not null unique,
+	mpw varchar(20) not null,
+	mname varchar(20) not null,
+	mphone varchar(13) not null unique,
+	primary key(mno)
+);
+
+select * from member;
+
+insert into member(mid,mpw,mname,mphone)values('ezen','1234','이젠','123-123-1234');
+
+# 로그인 [ 테이블에 값 검색(select) ]
+select * from member;
+select mid, mpw from member; -- mid,mpw필드 레코드 검색
+# 아이디와 패스워드가 일치한 레코드 검색
+select mid,mpw from member where mid = '123';	# 만약에 mid필드에 '123'문자열이 있는 레코드 검색
+select mid,mpw from member where mid = '234' and mpw = '234';	# 만약에 mid필드가 '234'이면서 mpw필드가 '234인 레코드 검색
+
+/*
+	1. 테이블의 필드에 해당하는 레코드 검색
+		select 필드명 from 테이블명			: 해당 필드의 레코드 검색
+        select 필드명, 필드명, 필드명 from 테이블 : 여러 개 필드들의 레코드 검색
+        select * from 테이블명				: 모든 필드[*] 레코드 검색
+	2. 필드에 조건 추가		[ where 조건절 (필드명 연산자 값) ]
+		select 필드명 			from 테이블명 where 조건
+        select 필드명,필드명,필드명 	from 테이블명 where 조건
+        select * 				from 테이블명 where 조건
+    
+*/
+
+/*------------------------------------------------------------------------*/
+drop database if exists sqldb5web;
+create database sqldb5web;
+use sqldb5web;
+drop table if exists table1;
+create table table1( 데이터1 int , 데이터2 varchar(100));
+# CRUD :
+# 1. insert [C : create] 회원가입 ,글쓰기,제품등록,주문 , 대여 등등
+	# insert into 테이블명(필드명 ,필드명) values(값1, 값2)
+insert into table1(데이터1,데이터2) values( 1, '유재석');
+insert into table1(데이터1,데이터2) values( 2, '강호동');
+
+# 2. select [R : reading] 로그인, 아이디/비번찾기 , 글목록, 글조회 , 제품조회 , 주문현황 등등
+	# select 필드명 from 테이블명
+    # select 필드명 from 테이블명 where 조건절
+select * from table1;
+select * from table1 where 데이터2 = '강호동';
+
+# 3. update [U : update]
+	# update 테이블명 set 필드명 = 수정값 , 필드명 = 수정값
+    # update 테이블명 set 필드명 = 수정값 , 필드명 = 수정값 where 조건절
+update table1 set 데이터1 = 3;		# 메뉴 -> edit -> Preferences - > sql editor -> safe update 체크 해제
+    
+# 4. delete [D : delete]
+	# delete from 테이블명
+    # delete from 테이블명 where 조건절
+
+
+
