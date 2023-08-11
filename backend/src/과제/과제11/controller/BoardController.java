@@ -33,8 +33,26 @@ public class BoardController {
 	   public BoardDto boardView(int bno) {
 		   return BoardDao.getInstance().boardView(bno);
 	   }
-	   // 8. boardUpdate: 게시물 수정
-	   public void boardUpdate() {}
-	   // 9. boardDelete   : 게시물 삭제
-	   public void boardDelete() {}
+	   // 8. boardUpdate: 게시물 수정 [ 준비물 : bno = 수정할 게시물의 식별 [누구를 수정할건지 ] / mno = 작성요청한 회원과 게시물의 작성자가 일치할 경우에만 수정 가능하도록 하기위해서 [ 유효성 검사] / title : 수정할 값, content : 수정할 값 
+	   public int boardUpdate(int bno , int mno , String title ,String content) {
+		   // 1. 유효성 검사
+		   	// 1. 게시물의 작성자 회원번호와 로그인된 회원의 번호와 일치 하지 않으면
+		   if( mno != MemberController.getInstance().getLoginSession()) {return 3;}
+		   	// 2. 제목 글자 수 검사
+		   if(title.length() < 1 || title.length() >= 50) {return 4;}
+		   
+		   boolean result = BoardDao.getInstance().boardUpdate(new BoardDto(bno,title,content));
+		   if(result) return 1;
+		   else return 2;
+
+	   }
+	   // 9. boardDelete   : 게시물 삭제 [ 준비물 : bno = 삭제할 게시물의 식별 [ 누구를 삭제할건지 ] / mno = 삭제요청한 회원과 게시물의 작성자가 일치한 경우에만 [유효성검사]
+	   public int boardDelete(int bno, int mno) {
+	         // 1. 유효성 검사
+	         if(mno !=MemberController.getInstance().getLoginSession()){return 3;}
+	         boolean result = BoardDao.getInstance().boardDelete(bno);
+	         if(result) return 1;
+	         else return 2;
+	         
+	      }   
 }

@@ -67,8 +67,12 @@ public class BoardDao extends Dao{
 				   // 레코드1개 => DTO 한개
 				   BoardDto dto = new BoardDto(rs.getInt(1), rs.getString(2), rs.getString(3),
 						   rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7));
+<<<<<<< HEAD
 				   
 				   boardViewCount(dto.getBno());
+=======
+				   boardViewCount(bno);
+>>>>>>> branch 'main' of https://github.com/ljh401/ezen_ljh_401.git
 				   return dto;
 			   }
 		   }catch (Exception e) {
@@ -80,6 +84,7 @@ public class BoardDao extends Dao{
 	   // 11-2. 조회수 증가 함수
 	   public boolean boardViewCount(int bno) {
 		   try {
+<<<<<<< HEAD
 			   String sql = "update board set bview = bview +1  where bno = ?"; 
 			   ps = conn.prepareStatement(sql);
 			   ps.setInt(1, bno);
@@ -91,11 +96,49 @@ public class BoardDao extends Dao{
 		   
 		   return false;
  }
+=======
+			   String sql = "update board set bview =bview + 1 where bno = ?";
+			   ps = conn.prepareStatement(sql);
+			   ps.setInt(1, bno);
+			   ps.executeUpdate();
+		   }catch (Exception e) {
+			System.out.println(e);
+		}
+		   
+		   
+		   return false;
+		   
+	   }
+>>>>>>> branch 'main' of https://github.com/ljh401/ezen_ljh_401.git
 	   
-	   // 8. boardUpdate: 게시물 수정
-	   public void boardUpdate() {}
-	   // 9. boardDelete   : 게시물 삭제
-	   public void boardDelete() {}
+	   // 8. boardUpdate: 게시물 수정 [ 인수 : bno , title , content ] / 반환 : true , false
+	   public boolean boardUpdate(BoardDto boardDto) {
+		   try {
+			   String sql = "update board set btitle = ? , bcontent = ? where bno = ?";
+			   ps = conn.prepareStatement(sql);
+			   ps.setInt(1, boardDto.getBno());
+			   ps.setString(2, boardDto.getBtitle());
+			   ps.setString(3, boardDto.getBcontent());
+			   int row = ps.executeUpdate();
+			   if(row == 1) return true;
+		   }catch (Exception e) {
+			System.out.println(e);
+		}
+		   return false;
+	   }
+	   // 9. boardDelete   : 게시물 삭제 [ 인수 : bno ] / 반환 : true , false
+	   public boolean boardDelete(int bno) {
+		   try {
+			   String sql = "delete from board where bno =?";
+			   ps = conn.prepareStatement(sql);
+			   ps.setInt(1, bno);
+			   int row = ps.executeUpdate();
+			   if(row == 1) return true;
+		   }catch (Exception e) {
+			   System.out.println(e);
+		}
+		   return false;
+	   }
 }
 
 /*
