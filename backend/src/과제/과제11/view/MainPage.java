@@ -34,6 +34,10 @@ public class MainPage {
 			}
 		}
 	}
+	public void MainView() {
+		
+	}
+	
 	// 2. 회원가입
 	public void signupView() {
 		System.out.println("-----------회원가입페이지-----------");
