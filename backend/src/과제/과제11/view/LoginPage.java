@@ -179,7 +179,7 @@ public class LoginPage {
 		System.out.print("1. 뒤로가기 2. 초기화면 3. 답장하기"); int ch = sc.nextInt();
 		if(ch == 1) {info();}
 		if(ch ==2 ) {return ;}
-		if(ch ==3) {letterReply();}
+		if(ch ==3) {}
 	}
 	
 	public void letterReply(int pno) {
