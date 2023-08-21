@@ -61,8 +61,5 @@ public class BoardController {
 		return BoardDao.getInstance().letterCheck();
 		}
 	   
-	   public LetterDto letterReply(int pno) {
-		 return BoardDao.getInstance().letterReply(pno);
-		
-		}
+	   
 }

@@ -188,13 +188,10 @@ public class LoginPage {
 		
 		
 		  // 2.
-		   LetterDto result = BoardController.getInstance().letterReply(pno);
+		 
 		   // 3. 출력
-		   System.out.printf("쪽지번호 : %-3s 보낸사람 : %-3s 보낸내용 : %-10s 보낸일시 : %-19s \n" ,
-				   result.getPno() , result.getMno(),
-				   result.getPcontent(), result.getPdate());
-		  
-		}
+		
+}
 }
 	
 /*
