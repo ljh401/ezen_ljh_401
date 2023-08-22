@@ -3,6 +3,7 @@ package 과제.과제11.model.dao;
 import java.util.ArrayList;
 
 import 과제.과제11.model.dto.BoardDto;
+import 과제.과제11.model.dto.LetterDto;
 
 public class BoardDao extends Dao{
 	private static BoardDao boardDao = new BoardDao();
@@ -67,7 +68,10 @@ public class BoardDao extends Dao{
 				   // 레코드1개 => DTO 한개
 				   BoardDto dto = new BoardDto(rs.getInt(1), rs.getString(2), rs.getString(3),
 						   rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7));
+
+
 				   boardViewCount(bno);
+
 				   return dto;
 			   }
 		   }catch (Exception e) {
@@ -79,18 +83,20 @@ public class BoardDao extends Dao{
 	   // 11-2. 조회수 증가 함수
 	   public boolean boardViewCount(int bno) {
 		   try {
-			   String sql = "update board set bview =bview + 1 where bno = ?";
+
+			   String sql = "update board set bview = bview +1  where bno = ?"; 
 			   ps = conn.prepareStatement(sql);
 			   ps.setInt(1, bno);
 			   ps.executeUpdate();
+			   
 		   }catch (Exception e) {
 			System.out.println(e);
 		}
 		   
-		   
 		   return false;
-		   
-	   }
+ }
+			   
+
 	   
 	   // 8. boardUpdate: 게시물 수정 [ 인수 : bno , title , content ] / 반환 : true , false
 	   public boolean boardUpdate(BoardDto boardDto) {
@@ -120,7 +126,32 @@ public class BoardDao extends Dao{
 		}
 		   return false;
 	   }
-}
+	   
+	   public ArrayList<LetterDto> letterCheck() {
+		   ArrayList<LetterDto> list = new ArrayList<>(); 
+		   		try {
+		   			String sql = "select pno , mno , pcontent, pdate from letter";
+		   			ps = conn.prepareStatement(sql);
+		   			
+		   			rs = ps.executeQuery();
+		   		 while(rs.next()) { 
+					   LetterDto letterDto = new LetterDto(rs.getInt(1), rs.getInt(2), rs.getString(3),
+							   rs.getString(4));
+					   
+					   list.add(letterDto);
+		   			
+		   		 }
+		   		}catch (Exception e) {
+					System.out.println(e);
+				}
+		return list;
+		
+		   		}
+	   
+	   
+	}
+
+
 
 /*
  	테이블

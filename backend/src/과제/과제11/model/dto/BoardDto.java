@@ -11,6 +11,8 @@ public class BoardDto { // 휘발성
 	private int mno; // 작성자가 회원번호 식별자
 	// 화면에는 작성자를 회원번호가 아닌 회원 다른 정보 출력
 	private String mid; // 회원번호를 이용한 회원테이블에서 조회 가능 [ 테이블 합치기 join ]
+	
+
 
 	// 2. 생성자 [ 1. 빈생성자 2. 풀생성자 + 추가생성자(글쓰기 사용할생성자, 글출력 사용할 생성자) ]
 	public BoardDto() {

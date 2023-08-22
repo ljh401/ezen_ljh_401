@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import 과제.과제11.model.dao.BoardDao;
 import 과제.과제11.model.dto.BoardDto;
+import 과제.과제11.model.dto.LetterDto;
 
 public class BoardController {
 
@@ -55,4 +56,10 @@ public class BoardController {
 	         else return 2;
 	         
 	      }   
+	   
+	   public ArrayList<LetterDto> letterCheck() {
+		return BoardDao.getInstance().letterCheck();
+		}
+	   
+	   
 }

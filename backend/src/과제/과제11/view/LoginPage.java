@@ -6,6 +6,7 @@ import java.util.Scanner;
 import 과제.과제11.controller.BoardController;
 import 과제.과제11.controller.MemberController;
 import 과제.과제11.model.dto.BoardDto;
+import 과제.과제11.model.dto.LetterDto;
 import 과제.과제11.model.dto.MemberDto;
 
 public class LoginPage {
@@ -56,6 +57,7 @@ public class LoginPage {
 	   if(ch == 1) {infoUpdate();}
 	   if(ch == 2) {infoDelete();}
 	   if(ch == 3) {return;} // 생략 가능
+	   if(ch ==4 ) {letterCheck();}
 	   
    }
    // 3. infoUpdate   : 회원정보수정 페이지
@@ -131,6 +133,7 @@ public class LoginPage {
 	   if (ch == 1) {}
 	   if (ch == 2) {boardUpdate(bno, result.getMno());} // 보고 있는 게시물 번호와 작성자회원번호
 	   if (ch == 3) {boardDelete(bno, result.getMno());}
+	   if ( ch == 4) {letterSend();}
    }
    // 8. boardUpdate: 게시물 수정 [ 게시물 번호 식별해서 제목이랑 내용만 수정 ]
    public void boardUpdate(int bno , int mno) {
@@ -158,12 +161,39 @@ public class LoginPage {
 	   else if( result == 2) {System.out.println("안내 ] 글 삭제 실패 : 관리자에게 문의");}
 	   else if( result == 3) {System.out.println("안내 ] 본인 글만 삭제 가능합니다.");}
    }
-}
+   public void letterSend() {}
 
 // 쪽지 보내기 페이지 
  
 // 쪽지확인 페이지 // + 쪽지답장 보내기
-
+	public void letterCheck() {
+		System.out.println("\n\n ===== letter check =====");
+		ArrayList<LetterDto> letterDto = BoardController.getInstance().letterCheck();
+		System.out.printf("%-3s %-4s %-15s %-10s \n", "쪽지번호","보낸사람","보낸내용","보낸일시");
+		for(int i = 0; i<letterDto.size(); i++) {
+			LetterDto dto = letterDto.get(i);	// i번째 객체를 호출
+			   
+			   System.out.printf("%-3s %-4s %-15s %-10s \n", dto.getPno() , dto.getMno(), dto.getPcontent(),dto.getPdate());
+		}
+		
+		System.out.print("1. 뒤로가기 2. 초기화면 3. 답장하기"); int ch = sc.nextInt();
+		if(ch == 1) {info();}
+		if(ch ==2 ) {return ;}
+		if(ch ==3) {}
+	}
+	
+	public void letterReply(int pno) {
+		System.out.println("\n\n ===== letter reply =====");
+		System.out.print("답장할 쪽지를 선택하세요."); pno = sc.nextInt();
+		
+		
+		  // 2.
+		 
+		   // 3. 출력
+		
+}
+}
+	
 /*
 	ArrayList<리스트에저장할타입> 리스트 객체명 = new ArrayList<>();
 		1. .size()		: 리스트내 객체수						==유사 result.length
