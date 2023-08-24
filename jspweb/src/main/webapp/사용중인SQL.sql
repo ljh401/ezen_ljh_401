@@ -13,3 +13,16 @@ create table visitlog (
 );
 
 select * from visitlog;
+
+drop table if exists member;
+create table member (
+	mno int auto_increment,
+    mid varchar(50) not null unique,
+    mpwd varchar(20) not null,
+    memail varchar(50) not null unique,
+    mimg longtext,		# 만약에 프로필 미등록시 기본 프로필 사용.
+    primary key (mno)
+    
+);
+
+select * from member;

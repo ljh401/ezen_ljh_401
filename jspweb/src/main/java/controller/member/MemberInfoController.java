@@ -1,11 +1,15 @@
 package controller.member;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.MemberDao;
+import model.dto.MemberDto;
 
 /**
  * Servlet implementation class MemberInfoController
@@ -40,10 +44,12 @@ public class MemberInfoController extends HttpServlet {
 		String memail = request.getParameter("memail"); System.out.println("memail : " + memail);
 		String mimg = request.getParameter("mimg"); System.out.println("mimg : " + mimg);
 		// 2. (선택) 객체화
-		
+		MemberDto dto = new MemberDto(mid,mpwd,memail,mimg);
 		// 3. DAO에게 전달하고 결과 받기
-		
+		boolean result = MemberDao.getInstance().signup(dto);
 		// 4. AJAX통신으로 결과 데이터를 응답을 보낸다. [ response ]
+		response.setContentType("application/json; charset = UTF-8");
+		response.getWriter().print(result);
 	}
 
 	/**
