@@ -1,4 +1,4 @@
-package java2.day21;
+package java2.day21_예외처리;
 
 public class Ex2_예외처리 {
 

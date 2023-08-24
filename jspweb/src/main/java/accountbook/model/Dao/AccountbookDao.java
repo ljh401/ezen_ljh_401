@@ -53,8 +53,8 @@ private static AccountbookDao accountbookDao = new AccountbookDao();
 		try {
 			String sql = "update accountbook set acontent = ? , amoney = ? , adate = ? where ano = ? ";
 			ps = conn.prepareStatement(sql);
-			ps.setString(2, acontent);
-			ps.setInt(1, amoney);
+			ps.setString(1, acontent);
+			ps.setInt(2, amoney);
 			ps.setString(3, adate);
 			ps.setInt(4, ano);
 			int row = ps.executeUpdate();

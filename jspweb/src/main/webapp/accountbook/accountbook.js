@@ -40,7 +40,7 @@ function aread(){
 			for(let i = 0; i<r.length; i++) {
 				html += `<div class = "accountbox"> <!-- 방문록 1개의 표시 구역 -->
                				<div class = "accountbox_top">
-                  				<div>${r[i].amoney}</div>
+                  				<div>${r[i].amoney}원</div>
                   				<div class = "accountdate">${r[i].adate}</div>
                				</div>
                					<div class = "accountbox_center">${r[i].acontent}</div>

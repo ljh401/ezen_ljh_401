@@ -1,4 +1,4 @@
-package java2.day21;
+package java2.day21_예외처리;
 
 public class Ex4_예외정의 {
 
