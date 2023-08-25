@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* 사용 가능한 좌석 */
+.info_button button {
+    background-color: lightgreen;
+    color: black;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* 사용 중인 좌석 */
+.info_button button.occupied {
+    background-color: lightcoral;
+    color: white;
+}
+
+/* 선택한 좌석 */
+.info_button button.selected {
+    background-color: lightblue;
+}
