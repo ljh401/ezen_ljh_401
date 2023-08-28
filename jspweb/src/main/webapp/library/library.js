@@ -6,7 +6,30 @@ function getValue(button) {
     lno = button.textContent;
     alert("눌린 버튼의 값: " + lno);
 }
-
+function inroom(){ // 입실
+   
+   document.querySelector('.getValue')
+   let lnameInput = document.querySelector('.lname')
+   let lphoneInput = document.querySelector('.lphone')
+   console.log(lphoneInput)
+   console.log(lnameInput)
+   console.log(lno)
+   let info ={ 
+      lno : lno ,
+      lname : lnameInput.value , 
+      lphone : lphoneInput.value, 
+   }
+   console.log(info)
+   $.ajax({
+      url : "/jspweb/library" ,
+      method : "post",
+      data : info ,
+      success : r => {
+         alert('입실 성공');
+      } ,
+      error : e => {}
+   })
+}
 function outroom() {
 	
     if (!lno) {
@@ -33,3 +56,4 @@ function outroom() {
         },
     });
 }
+

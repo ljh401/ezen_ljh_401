@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import library.model.dao.LibraryDao;
+import library.model.dto.LibraryDto;
 
 
 
@@ -27,7 +28,17 @@ public class library extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 int lno = Integer.parseInt(request.getParameter("lno"));
+	      String lname = request.getParameter("lname"); System.out.println("lname : " +lname);
+	      String lphone = request.getParameter("lphone"); System.out.println("lphone : " +lphone);
 
+	      
+	      LibraryDto libraryDto = new LibraryDto( lno , lname, lphone);
+
+	      boolean result = LibraryDao.getInstance().inroom(libraryDto);
+	      
+	      response.setContentType("application/json;charset=UTF-8");
+	      response.getWriter().print(result);
 	}
 
 

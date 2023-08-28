@@ -22,8 +22,8 @@
 		   <button onclick ="getValue(this)" type="button">8</button>
 	   </div>
 	   <div class = "info_input">
-		   <input class="lname" type="text">
-		   <input class="lphone" type="text">
+		   <input class="lname" type="text" placeholder="이름">
+		   <input class="lphone" type="text" placeholder="전화번호">
 	   </div>
 	 </div>
 	   

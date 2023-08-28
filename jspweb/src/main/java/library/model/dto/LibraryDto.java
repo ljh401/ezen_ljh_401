@@ -10,11 +10,12 @@ public class LibraryDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LibraryDto(int lno, String lphone, String lname) {
+	public LibraryDto(int lno,  String lname , String lphone) {
 		super();
 		this.lno = lno;
-		this.lphone = lphone;
+		
 		this.lname = lname;
+		this.lphone = lphone;
 	}
 	
 	public LibraryDto(int lno, String lphone) {
