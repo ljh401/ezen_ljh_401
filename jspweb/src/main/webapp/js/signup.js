@@ -300,21 +300,28 @@ function signup() {
 				// 첨부파일 있을때 다름 (기존 json 형식의 전송x , form객체 전송 타입으로 변환)
 				$.ajax({
 					url : "/jspweb/MemberInfoController",
-					method : "post",			// 첨부파일 form전송은 무조건 post 방식
+					method : "post",			// 첨부파일[대용량] form전송은 무조건 post 방식
 					data : signupData ,			// formData 객체
 					contentType : false,		// form 객체 전송 타입
 					processData : false,
-					success : r => { console.log(r)},
+					success : r => { 
+						
+						if(r){// 회원가입 성공 [ 1. 알린다 2. 페이지전환]
+							alert('회원가입 성공');
+							location.href = '/jspweb/member/login.jsp';
+						} else {// 회원가입 실패
+							alert('회원가입 실패[관리자 문의]');
+						}
+					},
 					error : e => { console.log(e)},
 					
 				})
-				// 2. 첨부파일 있을때 [ 기존 json형식의 전송x form객체 타입 변환 ]
-			
+				
 		} else {
-			console.log('회원가입 진행 불가능');
+			alert('정상적으로 입력 안된 내용이 있습니다.');
 		}
 	
-}
+} // f end
 
 // 0. 유효성 검사가 없는 회원가입 메소드
 

@@ -11,29 +11,39 @@
 
 	<%@include file = "../header.jsp" %>
 	
-	<div> <!-- 회원가입 전체 구역 -->
+	<div class = "webcontainer"> <!-- 회원가입 전체 구역 -->
 		<form class = "signupForm"> <!-- 폼 전송시 각 input에 name -->
-			아이디 : <input onkeyup = "idcheck()" name = "mid" class = "mid" type = "text" />
-			<span class = "idcheckbox"></span>
-			 <br/>
-			비밀번호 : <input onkeyup = "pwcheck()" name = "mpwd" class = "mpwd" type = "password" /> <br/>
-			비밀번호 확인 : <input onkeyup = "pwcheck()" class = "mpwdconfirm" type = "password" /> <br/>
+		
+			<h2> 이젠 개발자 커뮤니티 </h2>
+			<p> 환영합니다. 다양한 커뮤니티 플랫폼 제공합니다. </p>
 			
-			<span class = "pwcheckbox"></span>
+			<div class = "intitle">아이디</div>
+				<input maxlength = "30" onkeyup = "idcheck()" name = "mid" class = "mid" type = "text" />
+			<div class = "idcheckbox"></div>
+
+			 
+			<div class = "intitle">비밀번호</div>
+				<input maxlength = "20" onkeyup = "pwcheck()" name = "mpwd" class = "mpwd" type = "password" />
 			
+			<div class = "intitle">비밀번호 확인</div>
+				<input maxlength = "20" onkeyup = "pwcheck()" class = "mpwdconfirm" type = "password" />
+			<div class = "pwcheckbox"></div>
 			
-			이메일 :	<input onkeyup ="emailcheck()" name = "memail" class = "memail" type = "text" /> <button class = "authReqBtn" onclick = "authReq()" disabled type = "button">인증요청</button><br/>
-			<div class = "authbox">
-				<!-- 인증 요청 버튼 클릭시 보이는 구역 -->
+			<div class = "intitle">이메일</div>
+			<div class = "emailbox">
+				<input onkeyup ="emailcheck()" name = "memail" class = "memail" type = "text" /> 
+				<button class = "authReqBtn" onclick = "authReq()" disabled type = "button">인증요청</button><br/>
 			</div>
 			
+			<div class = "authbox"></div>
+			<div class = "emailcheckbox"></div>
 			
-			<span class = "emailcheckbox"></span>
+			<div class = "intitle">프로필</div>
+			<input onchange = "preimg(this)" name = "mimg" class = "mimg" type = "file" />
+			<img class = "preimg" alt = "" src = "img/default.webp">
 			
-			프로필 : <input onchange = "preimg(this)" name = "mimg" class = "mimg" type = "file" /> <br/>
-				<!-- <태그명 이벤트명="함수명(this)" /> -->
-			<img class = "preimg" alt = "" src = "" width = "300px"><!-- 등록 사진을 미리보기 할 사진 태그 -->
-			<button onclick = "signup()" type = "button">회원가입</button>
+			<button class = "signupbtn" onclick = "signup()" type = "button">회원가입</button>
+			
 		</form>
 	</div> 
 	

@@ -1,72 +1,101 @@
-/* 
+@charset "UTF-8";
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
+.signupForm {
+	width : 40%; margin : 0 auto;
+	font-size: 15px;
+
 }
 
-div {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.signupForm h2 , .signupForm p { /* 회원가입 전체 구역 */
+	text-align: center; /* 구역내 텍스트 가운데 정렬 */
+	margin-top : 10px;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+.signupForm input {
+	width : 100%;
+	height : 50px;
+	padding : 10px;
+	border : 1px solid #e8e8e8;
+	border-radius : 10px;
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
+.intitle { /* 입력 구역 이름 */
+	font-size: 17px; margin : 20px 0px 10px 0px;
 }
-
-input[type="text"],
-input[type="password"],
-input[type="file"] {
-  width: 95%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 10px;
+/* 유효성 검사 결과 구역 */
+.idcheckbox , .pwcheckbox , .emailcheckbox{
+	color: #ea3636;
+	font-size : 15px;
+	margin : 0px 0px 10px 10px;
 }
+/* 이메일 구역 */
+.emailbox{display: flex;}
 
-input[type="file"] {
+/* 인증요청 버튼 , 인증 버튼 */
+.emailbox button , .authbox button {
+	background-color: #75C1CF;
+	color : white;
+	border : none;
+	width : 20%;
+	height : 50px;
+	border-radius: 10px;
+	margin-left : 10px;
+}
+/* 인증구역 */
+.authbox{
+	display: flex; margin-top : 10px; 
+	align-items: center;
 	
 }
 
-input:focus {
-  outline: none;
-  border-color: #007bff;
+/* 인증 시간이 표시되는 구역 */
+.timebox {
+	width : 30%; padding : 10px; font-size: 20px;
 }
 
-.button-container {
-  text-align: center;
-  margin-top: 20px;
+/* 첨부파일 이미지 미리보기 구역 */
+.preimg{
+	width : 150px; height : 150px;
+	border : 1px solid #e8e8e8;
+	border-radius: 50%;
+	margin : 15px 146px;
+	object-fit : cover;
+	/* 구역보다 사진이 컸을때.
+		비율무시 ,사이즈자동맞춤 object-fit : contain;
+		비율자동맞춤 ,사이즈버림 object-fit : cover;
+	 */
+}
+/* 회원가입 버튼 */
+.signupbtn {
+	width : 100%;
+	height : 50px;
+	border : none;
+	background-color: #75C1CF;
+	color : white;
+	border-radius: 10px;
+	font-size: 25px;
+	margin : 10px 0px 100px 0px;
 }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+/* ------------------------------로그인 css---------------------------------- */
+.logincheckbox{
+	color : #ea3636; font-size : 18px;
+	margin : 0px 0px 10px 10px; text-align: center;
+	margin : 20px 0px;
 }
 
-button:hover {
-  background-color: #0056b3;
+.findbtnbox a {
+	margin-right : 10px;
 }
-
+/*
+	식별자
+		class	.
+		id		#
+		태그		태그명
+		
+		1. 하위식별자
+				식별자명 하위식별자명	: 모든 하위 식별자 적용
+				식별자명>하위식별자명 	: 직계 자손 식별자 적용
+		2. 복수식별자
+				식별자명 , 식별자명
  */
