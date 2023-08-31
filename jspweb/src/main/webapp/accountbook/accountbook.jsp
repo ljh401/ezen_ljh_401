@@ -10,6 +10,7 @@
 	<link href ="accountbook.css" rel = "stylesheet" />
 </head>
 <body>
+<%@include file = "../header.jsp" %>
 	<div class = "accountwrap"> <!-- 전체 구역 -->
 	
 			<div class = "account_Top"> <!-- 쓰기 구역 -->

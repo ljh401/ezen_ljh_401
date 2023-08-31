@@ -21,7 +21,7 @@
 			<li> <a href ="#">기능3</a> </li>
 			<li> <a href ="/jspweb/accountbook/accountbook.jsp">과제1 가계부</a> </li>
 			<li> <a href ="/jspweb/library/library.jsp">과제2 열람실</a> </li>
-			<li> <a href ="#">과제3 </a> </li>
+			<li> <a href ="/jspweb/hrm/hrm.jsp">과제3 직원관리</a> </li>
 		</ul>
 		<ul class = "submenu"><!-- 서브메뉴 -->
 		<li> <a href ="/jspweb/member/signup.jsp">회원가입</a> </li>
@@ -34,6 +34,7 @@
 
 	<!-- 최신 JQUERY import ( ajax() 사용할 js파일로부터 위에서 호출)-->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src = "/jspweb/js/header.js" type="text/javascript"></script>
 	
 </body>
 </html>

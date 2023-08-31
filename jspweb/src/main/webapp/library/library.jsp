@@ -9,7 +9,7 @@
    <link href="library.css" rel="stylesheet" />
 </head>
 <body>
-
+<%@include file = "../header.jsp" %>
 	<div class = "info">
 		<div class = "info_button">
 		   <button onclick ="getValue(this)" type="button">1</button>
