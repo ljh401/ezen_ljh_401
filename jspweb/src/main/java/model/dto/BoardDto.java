@@ -6,7 +6,7 @@ public class BoardDto {
 	private int bno;
 	private String btitle;
 	private String bcontent;
-	private  String bfile;
+	private String bfile;
 	private String bdate;
 	private int bview;
 	private int mno;
@@ -15,8 +15,10 @@ public class BoardDto {
     // - 게시물에 추가적으로 표시할 필드들
     private String mid; // 작성자 회원 아이디 [ 사용자는 게시물 조회시 작성자 회원번호보단 작성자 아이디를 원하는 경우가 많음 ]
     private String bcname; // 카테고리명 [ 사용자는 게시물의 카테고리번호를 원하지 않음 ]
-    
-    // 생성자
+    private String mimg; //  작성자의 프로필
+   
+
+	// 생성자
     public BoardDto() {}
 
 	public BoardDto(int bno, String btitle, String bcontent, String bfile, String bdate, int bview, int mno, int bcno,
@@ -44,11 +46,29 @@ public class BoardDto {
 		this.bcno = bcno;
 	}
 	
+	// 모든 글 출력 시 사용되는 생성자
+	public BoardDto(int bno, String btitle, String bcontent, String bfile, String bdate, int bview, int mno, int bcno,
+			String mid, String bcname, String mimg) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bdate = bdate;
+		this.bview = bview;
+		this.mno = mno;
+		this.bcno = bcno;
+		this.mid = mid;
+		this.bcname = bcname;
+		this.mimg = mimg;
+	}
+	
 	// 메소드
 
 	public int getBno() {
 		return bno;
 	}
+
 
 	public void setBno(int bno) {
 		this.bno = bno;
@@ -124,6 +144,14 @@ public class BoardDto {
 
 	public void setBcname(String bcname) {
 		this.bcname = bcname;
+	}
+	
+	 public String getMimg() {
+			return mimg;
+	}
+
+		public void setMimg(String mimg) {
+			this.mimg = mimg;
 	}
 
 	@Override

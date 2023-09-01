@@ -1,6 +1,7 @@
 package board;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -28,7 +30,19 @@ public class BoardInfoController extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. 요청
 		
+		// 2. 객체화
+		
+		// 3. DAO
+		ArrayList<BoardDto> result = BoardDao.getInstance().getList();
+			// * java 객체 --> js 객체 [JSON] 형식의 문자열로 변환
+		ObjectMapper objectMapper = new ObjectMapper();
+		String jsonArray = objectMapper.writeValueAsString(result);
+		
+		// 4. 응답
+		response.setContentType("application/json;charset=UTF-8");
+		response.getWriter().print(jsonArray);
 	}
 
 	// 2. 쓰기
@@ -58,7 +72,6 @@ public class BoardInfoController extends HttpServlet {
 		// 5. DAO 결과 응답
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(result);
-
 
 	}
 
