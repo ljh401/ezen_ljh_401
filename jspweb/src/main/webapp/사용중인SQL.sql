@@ -122,7 +122,7 @@ select * from library;
 
 insert into library (lno ,lphone, lname)  values (3, '010-1111-1111','이진형');
 
-delete from member;
+
 
 drop table if exists hrm;
 create table hrm (
@@ -137,6 +137,20 @@ create table hrm (
 
 select * from hrm;
 select * from member where mno = 1 and mpwd = 'wlsgud123';
+
+# 모든 글 출력 [ 게시물 번호 , 제목 , 파일 , 작성일 , 조회수 , 작성자아이디 , 카테고리명 ]
+select bno,btitle,bfile,bdate,bview from board;
+   # 게시물테이블과 회원 테이블 조인[테이블 합치기 / pk - fk]
+    # 게시물 테이블내 작성자번호와 회원테이블의 작성자번호와 같으면
+select * from board b natural join member m;
+select b.bno , b.btitle , b.bfile , b.bdate, m.mid from board b natural join member m; 
+   #게시몰 테이블 모든 필드, 회원테이블 아이디 , 게시몰카테고리테이블 카테고리명
+select b.*, m.mid,m.mimg,bc.bcname
+from board b 
+natural join bcategory bc 
+natural join member m 
+order by b.bdate desc; 
+
 
 
 
