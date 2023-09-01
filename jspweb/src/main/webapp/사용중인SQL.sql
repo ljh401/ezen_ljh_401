@@ -12,7 +12,33 @@ create table visitlog (
     primary key( vno )
 );
 
-select * from visitlog;
+# 1. 저장 insert / 레코드 추가
+insert into visitlog( vwriter , vpwd , vcontent) values ('이진형','1234','하이');
+# insert into visitlog( vwriter , vpwd , vcontent) values (?,?,?);
+
+# 2. 호출 select / 모든 레코드 검색 / 정렬(최신 글부터 출력)
+select * from visitlog order by vdate desc;
+
+# 3. 수정 [ 삭제할 식별자 필수 ]
+update visitlog set vcontent = '내용수정했다' where vno = 3; /* vno 3이면 vcontent 필드의 값을 수정 */
+update visitlog set vcontent = '내용수정했다' where vno = 3 and vpwd = '123123'; /* vno 3이면서 vpwd 1234이면 vcontent 필드 값 수정
+
+# 4. 삭제 [ 삭제할 식별자 필수 ]
+delete from visitlog;	/* 모든 레코드 삭제 */
+delete from visitlog where vno = 3; /* vno 3이면 삭제 */
+delete from visitlog where vno = 3 and vpwd = '1234'; /* vno 3 이면서 vpwd 1234면 레코드 삭제 */
+# delete from visitlog where vno = ? and vpwd = ?;
+
+drop table if exists accountbook ;
+create table accountbook (
+	ano int auto_increment,
+	acontent text not null,
+    amoney int not null,
+    adate datetime default now(),
+    primary key (ano)
+);
+select * from accountbook;
+select ano, acontent, amoney ,date_format(adate, '%Y-%m-%d') as adate from accountbook;
 
 drop table if exists member;
 create table member (
@@ -25,4 +51,92 @@ create table member (
     
 );
 
+# 게시판 카테고리
+drop table if exists bcategory;
+create table bcategory(
+	bcno int auto_increment,
+    bcname varchar(30) not null,
+    primary key(bcno)
+);
+#샘플 [ 공지사항 , 자유게시판 , 노하우 ]
+insert into bcategory values (1,'공지사항');
+insert into bcategory values (2,'자유게시판');
+insert into bcategory values (3,'노하우');
+
+
+# 게시판 
+drop table if exists board;
+create table board(
+	bno int auto_increment,
+    btitle varchar(30) not null,
+    bcontent longtext,
+    bfile longtext,
+    bdate datetime default now(),
+    bview int default 0,
+    mno int, 
+    bcno int ,
+    primary key (bno),
+    foreign key(mno) references member(mno) on delete cascade , 
+    foreign key(bcno) references bcategory(bcno) on delete cascade on update cascade
+);
+
+
+
 select * from member;
+# 1. 회원가입
+insert into member(mid,mpwd,memail,mimg) values ('이진형','a1234','qwe@qwe.com','default.jpg');
+
+# 2. 아이디 중복검사 [ 특정 mid의 아이디로 검색했을때 존재하면 중복 , 없으면 사용중인 아이디 X]
+select * from member where mid = 'qweqwe';
+# select * from member where mid = ?;
+
+# 3. 로그인 [ 아이디와 비밀번호가 일치한 레코드 존재여부 ]
+select * from member where mid ='qweqwe' and mpwd = 'qweqwe'; # 레코드가 검색되면 로그인 성공 / 없으면 로그인 실패
+# select * from member where mid =? and mpwd = ?;
+
+# 4. 회원정보 호출 [ 아이디를 이용해서 패스워드 제외하고 모든 회원정보를 호출 ]
+select mno, mid ,memail, mimg from member where mid = 'qweqwe';
+# select mno, mid ,memail, mimg from member where mid = ?;
+
+# 5. 회원탈퇴 [ 누구(mno)를 탈퇴할건지 , 검증(탈퇴할 회원의 패스워드) ]
+delete from member where mno = 1 and mpwd = 'qweqwe' ; # 1번회원이 패스워드가 'qweqwe' 이면 레코드 삭제
+# delete from member where mno = ? and mpwd = ? ;
+
+# 6. 회원수정
+
+
+
+update board set bview = bview +1  where bno =1;
+
+drop table if exists library;
+create table library (
+	lno int,
+     lname varchar(20) not null,
+    lphone varchar(20) not null,
+   
+     
+    primary key ( lno)
+);
+
+select * from library;
+
+insert into library (lno ,lphone, lname)  values (3, '010-1111-1111','이진형');
+
+delete from member;
+
+drop table if exists hrm;
+create table hrm (
+	hno int auto_increment,
+    himg longtext,
+    hname varchar(20) not null,
+    hphone varchar(20) not null,
+    hposition varchar(20) not null,
+    hdate datetime default now(),
+    primary key(hno)
+);
+
+select * from hrm;
+select * from member where mno = 1 and mpwd = 'wlsgud123';
+
+
+

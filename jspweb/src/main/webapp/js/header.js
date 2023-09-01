@@ -1,4 +1,4 @@
-
+let loginState = false; /*로그인 상태 true : 로그인중 false : 비로그인 */
 // 1. 현재 로그인된 회원정보 요청 
 
 getMemberInfo(); 
@@ -11,9 +11,11 @@ function getMemberInfo(){
 			let submenu = document.querySelector('.submenu')
 			let html = ``; // - 로그인 상태에 따른 서로다른 html 구성  
 			if( r == null ){ // 비로그인 
+			loginState = false;
 				html += ` <li> <a href="/jspweb/member/signup.jsp">회원가입</a> </li>
 						<li> <a href="/jspweb/member/login.jsp">로그인</a> </li> `;
 			}else{ // 로그인 
+				loginState = true;
 				html += ` <li> ${ r.mid } 님 </li>
 						<li> <img class="hmimg" src="/jspweb/member/img/${ r.mimg }" /> </li>
 						<li> <a href="/jspweb/member/info.jsp">마이페이지</a> </li>
