@@ -16,7 +16,16 @@ public class BoardDto {
     private String mid; // 작성자 회원 아이디 [ 사용자는 게시물 조회시 작성자 회원번호보단 작성자 아이디를 원하는 경우가 많음 ]
     private String bcname; // 카테고리명 [ 사용자는 게시물의 카테고리번호를 원하지 않음 ]
     private String mimg; //  작성자의 프로필
-   
+    // - 조회대상자와 게시물 작성자 대상자 일치여부 [ 본인글 체크 여부]
+    private boolean ishost;
+    
+	public boolean isIshost() {
+		return ishost;
+	}
+
+	public void setIshost(boolean ishost) {
+		this.ishost = ishost;
+	}
 
 	// 생성자
     public BoardDto() {}
@@ -63,12 +72,22 @@ public class BoardDto {
 		this.mimg = mimg;
 	}
 	
+	// 수정시 사용되는 생성자
+	public BoardDto(int bno, String btitle, String bcontent, String bfile, int bcno) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bcno = bcno;
+	}
+
+	
 	// 메소드
 
 	public int getBno() {
 		return bno;
 	}
-
 
 	public void setBno(int bno) {
 		this.bno = bno;
