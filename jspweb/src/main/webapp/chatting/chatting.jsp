@@ -5,22 +5,58 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<link href = "/jspweb/css/chatting/chatting.css" rel = "stylesheet">d
 </head>
 <body>
 
 	<%@include file="../header.jsp"%>
 
 	<div class="webcontainer">
-		<h2>채팅</h2>
-	</div>
-		<div class = "contentbox">
-		
-		
+
+		<!-- 채팅전체구역 -->
+		<div class = "chatbox">
+			<!-- 채팅내용 목록 -->
+			<div class = "chatcont">
+				<!-- JS 들어가는 자리 -->
+			
+			</div>
+
+			<!-- 채팅입력창 , 전송버튼 -->
+			<div class = "chatbottom">
+				<textarea class="msg" ></textarea>
+				<button onclick = "onSend()" type="button">전송</button>
+			</div>
 		</div>
-		<input class = "inputcontent" type = "text">
-		<button class = "sendbtn" onclick="msgsend()" type = "button">전송</button>
-		
-		
+	</div>
+
 	<script src="/jspweb/js/chatting/chatting.js" type="text/javascript"></script>
 </body>
 </html>
+
+<!-- 
+
+			<div class = "rcont">
+				<div class = "subcont">
+					<div class = "date"> 오전 10:02 </div>
+					<div class = "content">안녕하세요 ㅋㅋㅋㅋㅋ</div>
+				</div>
+			</div>
+
+			<div class = "alarm"> 강호동님이 입장하셨습니다.</div>
+			
+
+				<div class = "lcont">
+			
+					<img class = "pimg" src ="/jspweb/member/img/default.webp" />
+						<div class = "tocont">
+							<div class = "name">강호동</div>
+							<div class = "subcont"> 
+								<div class = "content"> 그래 안녕~~</div>
+								<div class = "date"> 오전 10:10 </div>
+							</div>
+						</div>
+					
+				</div> -->
+				
+
