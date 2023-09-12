@@ -6,7 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<link href = "/jspweb/css/chatting/chatting.css" rel = "stylesheet">d
+	<link href = "/jspweb/css/chatting/chatting.css" rel = "stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<!-- 폰트어썸 css  -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 </head>
 <body>
 
@@ -24,13 +27,24 @@
 
 			<!-- 채팅입력창 , 전송버튼 -->
 			<div class = "chatbottom">
-				<textarea class="msg" ></textarea>
+				<textarea onkeyup = "onEnterKey()" class="msg" ></textarea>
 				<button onclick = "onSend()" type="button">전송</button>
 			</div>
-		</div>
+			
+			<!-- 이모티콘 , 첨부파일 등등 구역 -->
+         <div class="dropdown">
+           <button class="emobtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="far fa-grin-squint"></i>
+           </button>
+             <ul class="dropdown-menu emolistbox">
+               <!-- JS에서 출력되는 구역 -->
+             </ul>
+      	</div>
 	</div>
+</div>
 
 	<script src="/jspweb/js/chatting/chatting.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
 
