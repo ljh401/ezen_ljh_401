@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +17,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import model.dao.ProductDao;
+import model.dto.MemberDto;
 import model.dto.ProductDto;
 
 
@@ -55,44 +58,64 @@ public class ProductInfoController extends HttpServlet {
 		// 4. 파일업로드 요청 [ 요청방식 : request ]
 		try {
 			
-			Map< Integer , String > imgList = new HashMap<>(); // 업로드된 파일명들을 저장하기 위한 map컬렉션
-			
-			// form전송시 input/select/textarea 등의 태그 모든 데이터 한번에 요청해서 결과를 List 반환
-		List<FileItem> fileList = fileUpload.parseRequest(request);
-			// FileItem  : 각 요청한 데이터
-		// 5. 업로드 실행
-		int i = 0 ;
-		for(FileItem item : fileList) { // 요청한 input 들의 데이터를 반복문으로 하나씩 꺼내기
-
-				// 1. 일반 필드 [ isFormField() : 만약에 일반폼필드이면 true / 아니고 첨부파일 필드이면 false ]
-				if (item.isFormField()) {
-					System.out.println(item.getString()); // item.getString : 해당 요청 input의 value호출
-				} else { // 2. file 필드
-					// 만약에 파일 필드이면 업로드 진행
-					System.out.println("업로드할 파일명 : " +item.getName() );
-					// 6. 업로드 경로 + 파일명 [ 조합 ]
-					File fileUploadPath = new File(uploadPath+"/" + item.getName());
-						System.out.println("업로드경로와 파일명이 조합된 경로 : " + fileUploadPath);
-					item.write(fileUploadPath); // .write("저장할 경로[파일명포함]) 파일 업로드할 경로를 file타입으로 제공
-						
-					// 7. 업로드 된 파일명을 Map에 저장 [ -DB에 저장할라고 ]
-					i++;
-					imgList.put(i, item.getName()); // 저장시 이미지번호가 필요 없음
-					
+			Map< Integer , String > imgList = new HashMap<>();
+		      // form전송시 input/select/textarea 등 태그의 모든 데이터 한번에 요청해서 결과를 List 반환 
+		               List< FileItem > fileList = fileUpload.parseRequest( request );
+		                  // FileItem : 각 요청한 데이터 
+		               // 5. 업로드 실행 
+		               int i = 0;
+		               for( FileItem item : fileList ) { // 요청한 input 들의 데이터를 반복문으로 하나씩 꺼내기.
+		                  // 1. 일반 필드 [ isFormField() : 만약에 일반폼필드이면 true / 아니고 첨부파일필드이면 false  ] 
+		                  if( item.isFormField() ) { System.out.println( item.getString() ); } // .getString() : 해당 요청 input의 value 호출 
+		                  else { // 2. file 필드
+		                     // 만약에 파일 필드이면 업로드 진행
+		                        System.out.println( "업로드할 파일명 : " + item.getName() ); // .getName()
+		                     // 6.업로드 경로 + 파일명 [ 조합 ] 
+		                     
+		                        // 파일명에 중복이 있을때 식별 생성 
+		                        UUID uuid = UUID.randomUUID();
+		                           // UUID 클래스 : 고유성을 보장하는 ID를 만들기 위한 식별자 표준 규약  [ - 하이픈 4개 구역 ]
+		                        String filename = uuid+"-"+ item.getName().replaceAll("-", "_");
+		                                          // 만약에 파일명에 - 하이픈 존재하면 _언더바로 변경 
+		                                          // 왜?? 파일명과 UUID 간의 식별하기 위해 구분 -하이픈 사용하기 때문에.
+		                                          // 추후에 파일명만 추출시 사용자가 파일명에 - 이 있으면 파일명 추출시 쪼개기가 힘듬.
+		                        // UUID[ - - -  ] - 파일명 : 추후에 파일명만 추출시 -하이픈 기준으로 쪼개기 
+		                        
+		                     File fileUploadPath = new File( uploadPath +"/"+ filename ) ;
+		                     
+		                        System.out.println( "업로드경로와 파일명이 조합된 경로 : " + fileUploadPath );
+		                     item.write( fileUploadPath ); // .write("저장할경로[파일명포함]") 파일 업로드할 경로를 file타입으로 제공 
+		                     // 7. 업로드 된 파일명을 Map에 저장 [ -DB에 저장할려고  ]
+		                     i++;   // i는 임의의 값 
+		                     imgList.put( i , filename  ); // 저장시 에는 이미지번호가 필요 없음
+		                     // MAP 컬렉션은 키 와 값으로 구성된 엔트리 [ * 키는 중복 불가능 ]
 				}
 			}
 			// FileItem으로 가져온 데이터들을 각 필드에 맞춰서 제품db에 저장하기.
+		               
+		    // 회원번호
+		    Object object = request.getSession().getAttribute("loginDto");
+		    MemberDto memberDto = (MemberDto)object;
+		    int mno = memberDto.getMno();
+		            
 			ProductDto productDto = new ProductDto(
 					Integer.parseInt(fileList.get(0).getString()),
 					fileList.get(1).getString(),
 					fileList.get(2).getString(),
 					Integer.parseInt(fileList.get(3).getString()),
-					null,
-					null,
-					0,
+					fileList.get(4).getString(),
+					fileList.get(5).getString(),
+					mno, // 현재 로그인된[제품등록한]  회원의 번호 호출
 					imgList
 					);
 			System.out.println(productDto);
+			
+			// Dto를 Dao 처리
+			boolean result = ProductDao.getInstance().register(productDto);
+			
+			//
+			response.setContentType("application/json; charset = utf-8");
+			response.getWriter().print(result);
 		
 		} catch (Exception e) {
 		}
