@@ -179,3 +179,62 @@ function fileListPrint(){
 } // f end 
 // 4. 현재 드랍된 파일들 중에 삭제버튼 클릭시 해당 파일 제거 
 function fileDelete( i ){  fileList.splice( i , 1 ); fileListPrint(); }
+
+
+
+function print(){
+	
+	// 10개 최신순 출력
+	$.ajax({
+		url : "/jspweb/ProductInfoController",
+		method : "get",
+		data : {type : '1'},
+		success : r=>{}
+		
+	});
+	
+	// 해당 지역 제품 출력
+	$.ajax({
+		url : "/jspweb/ProductInfoController",
+		method : "get",
+		data : {type : '2' , e : e,w  : w,s : s ,n : n },
+		success : r=>{}
+	});
+	
+	// 제품 개별 조회
+	$.ajax({
+		url : "/jspweb/ProductInfoController",
+		method : "get",
+		data : {type : '3' , gno : gno},
+		success : r=>{}
+	});
+	
+	// 관리자 제품 출력
+	$.ajax({
+		url : "/jspweb/ProductInfoController",
+		method : "get",
+		data : {type : '4' ,listsize : listsize, page : page},
+		success : r=>{}
+	});
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

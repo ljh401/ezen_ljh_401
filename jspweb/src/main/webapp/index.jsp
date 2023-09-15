@@ -39,6 +39,7 @@
   </button>
 </div>
 	
+	<script src = "/jspweb/jsp/index.js"type="text/javascript"></script>
 	<!-- JSP파일 안에 다른 JSP 파일 import하기 -->
 	<%@include file = "footer.jsp"  %>
 	
