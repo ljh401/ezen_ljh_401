@@ -1,7 +1,12 @@
 package model.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import model.dto.ProductDto;
 
@@ -58,17 +63,105 @@ public class ProductDao extends Dao{
 		return false;
 	}
 	
-	// 2. 제품전체출력
-	public List<ProductDto> findByTop(int count){return null;}
-	public List<ProductDto> findByLatLng(String east , String west , String south , String north){return null;}
-	public ProductDto findByPno(int pno){return null;}
-	public List<ProductDto> findByAll(){return null;}
+	// 2. 출력
+	
+		// 0. 제품에 해당하는 이미지 출력하는 함수
+	public Map<Integer , String> getProductImg(int pno) { // 공통적으로 사용되는 부분을 함수화 시킴.
+		try {
+			Map<Integer, String> imglist = new HashMap<>(); // 제품별 여러개 이미지
+			String sql = "select * from productimg where pno="+rs.getInt("pno");
+			
+			PreparedStatement ps2 = conn.prepareStatement(sql);
+			ResultSet rs2 = ps2.executeQuery();
+			// * 위에서 먼저 사용중인 rs인터페이스가 사용중이므로 [ while ] 중복 사용 불가능
+			// 해결방안 새로운 rs 만들기 (PreparedStatement,ResultSet 2개 사용)
+			// 새로만드는 이유 : 힙 생각을 해야함.
+			// rs는 힙에 저장되는 객체이고 공유해서 저장하기 때문에 겹침. 만약에 2를 안만들고 그냥 rs라고 쓰면 둘이 공유하게 되서 덮어쓰기 되는 꼴임.
+			while(rs2.next()) {
+				imglist.put(rs2.getInt("pimgno"), rs2.getString("pimg"));
+			}
+			
+			return imglist;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	// 3. 선택된 제품번호에 해당하는 제품 출력 함수
+		public ProductDto findByPno(int pno){
+			try {
+				String sql = "select * from product p natural join pcategory pc natural join member m where p.pno= "+pno;
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery();
+				if(rs.next()) {
+					ProductDto productDto = new ProductDto(
+							rs.getInt("pcno"), rs.getString("pcname"),
+							rs.getInt("pno"),rs.getString("pname"),
+							rs.getString("pcontent"),rs.getInt("pprice"),
+							rs.getInt("pstate"),rs.getString("pdate"),
+							rs.getString("plat"),rs.getString("plng"),
+							rs.getInt("mno"),getProductImg(rs.getInt("pno")),
+							rs.getString("mid"));
+					return productDto;
+				}
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			return null;
+			}
+		
 	
 	
+		// 1. N개 제품들을 최신순으로 출력 함수
+	public List<ProductDto> findByTop(int count){
+		
+		List<ProductDto> list = new ArrayList<>();
+		
+		try {
+			String sql = "select * from product order by pdate desc limit " + count ;
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next()) {list.add(findByPno(rs.getInt("pno") ) ); }
+			return list;
+		} catch (Exception e) {System.out.println(e);}
+		return null;
+		}
 	
-	// 3. 제품개별조회
+		// 2. 현재 카카오 지도 내 보고있는 동서남북 기준내 제품들을 출력 함수
+	public List<ProductDto> findByLatLng(String east , String west , String south , String north){
+		try {	// 제품의 경도가 '동쪽' 작고 경도가 '서쪽' 크고 / 제품의 경도가 '남쪽' 작고 '북쪽' 크다.
+			List<ProductDto> list = new ArrayList<>();
+			String sql = "select pno from product where plat <= ? and plat >= ? and plng >= ? and plng <= ? order by pdate desc";
+			ps =conn.prepareStatement(sql);
+			ps.setString(1, east);
+			ps.setString(2, west);
+			ps.setString(3, south);
+			ps.setString(4, north);
+			rs = ps.executeQuery();
+			System.out.println(ps);
+			while( rs.next()) {list.add(findByPno(rs.getInt("pno") ) ); }
+			return list;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+		}
 	
-	// 4. 제품수정
+		
+		// 4. 모든 제품들을 출력하는 함수
+	public List<ProductDto> findByAll(){
+		try {
+			List<ProductDto> list = new ArrayList<>();
+			String sql = "select * from product";
+			ps =conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next()) {list.add(findByPno(rs.getInt("pno") ) ); }
+			return list;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+		}
 	
-	// 5. 제품삭제
 }
