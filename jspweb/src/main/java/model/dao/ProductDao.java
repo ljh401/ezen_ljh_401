@@ -68,8 +68,9 @@ public class ProductDao extends Dao{
 		// 0. 제품에 해당하는 이미지 출력하는 함수
 	public Map<Integer , String> getProductImg(int pno) { // 공통적으로 사용되는 부분을 함수화 시킴.
 		try {
+			
 			Map<Integer, String> imglist = new HashMap<>(); // 제품별 여러개 이미지
-			String sql = "select * from productimg where pno="+rs.getInt("pno");
+			String sql = "select * from productimg where pno="+pno;
 			
 			PreparedStatement ps2 = conn.prepareStatement(sql);
 			ResultSet rs2 = ps2.executeQuery();
@@ -128,26 +129,24 @@ public class ProductDao extends Dao{
 		return null;
 		}
 	
-		// 2. 현재 카카오 지도 내 보고있는 동서남북 기준내 제품들을 출력 함수
-	public List<ProductDto> findByLatLng(String east , String west , String south , String north){
-		try {	// 제품의 경도가 '동쪽' 작고 경도가 '서쪽' 크고 / 제품의 경도가 '남쪽' 작고 '북쪽' 크다.
-			List<ProductDto> list = new ArrayList<>();
-			String sql = "select pno from product where plat <= ? and plat >= ? and plng >= ? and plng <= ? order by pdate desc";
-			ps =conn.prepareStatement(sql);
-			ps.setString(1, east);
-			ps.setString(2, west);
-			ps.setString(3, south);
-			ps.setString(4, north);
-			rs = ps.executeQuery();
-			System.out.println(ps);
-			while( rs.next()) {list.add(findByPno(rs.getInt("pno") ) ); }
-			return list;
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return null;
-		}
-	
+	// 2. 현재카카오지도내 보고있는 동서남북 기준내 제품들을 출력 함수 
+		public List<ProductDto> findByLatLng( String east , String west , String south , String north ){ 
+			try { 	// 제품의 경도가 '동쪽' 작고 경도가 '서쪽' 크고 / 제품의 경도가 '남쪽' 작고 '북쪽' 크다. 
+				List<ProductDto> list = new ArrayList<>();
+				String sql = "select * from product "
+						+ "	where	plat <= ? and "
+						+ "			plat >= ? and "
+						+ "			plng >= ? and "
+						+ "			plng <= ? "
+						+ " order by pdate desc";
+				ps = conn.prepareStatement(sql);  
+				ps.setString( 4 , east ); ps.setString( 3 , west ); ps.setString( 2 , south ); ps.setString( 1 , north );
+				rs = ps.executeQuery();	System.out.println( ps );
+				while( rs.next() ) {  list.add( findByPno( rs.getInt("pno") ) ); 	} return list;
+				// rs가 굴러가는 *도중*에 다른 함수(DAO가 DAO를)를 불러내기 때문에 새로운 rs를 생성해야함.
+				// 하지만 rs가 다 끝난후에 호출할경우는 새로운 rs를 생성할 필요가 없는거임.
+			} catch (Exception e) { System.out.println(e); } return null; 
+		}	
 		
 		// 4. 모든 제품들을 출력하는 함수
 	public List<ProductDto> findByAll(){
@@ -164,4 +163,60 @@ public class ProductDao extends Dao{
 		return null;
 		}
 	
+	
+	// 3. 제품 찜하기 등록(=찜하기 상태가 아닐때=조건에 따른 레코드가 없을때)/취소(=찜하기 상태일때 = 조건에 따른 레코드 있을때)
+	public boolean setWish(int mno , int pno) {
+		try {
+			
+			String sql = getWish(mno,pno)?
+					"delete from pwishlist where mno = ? and pno = ?" :
+					"insert into pwishlist values ( ? , ?)" ;
+			
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			ps.setInt(2, pno);
+			int count = ps.executeUpdate();
+			if(count == 1) {return true;}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
+	// 4. 제품 찜하기 상태 출력
+	public boolean getWish(int mno , int pno) {
+		try {
+		String sql = "select * from pwishlist where mno =? and pno =?";
+		ps = conn.prepareStatement(sql);
+		ps.setInt(1, mno);
+		ps.setInt(2, pno);
+		rs = ps.executeQuery(); if(rs.next()) { return true;}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	// 5. 현재 로그인된 회원의 찜한 제품[여러개] 정보를 출력하는 함수
+	public List<ProductDto> getWishProductList(int mno) {
+		
+		List<ProductDto> list = new ArrayList<>();
+		
+		try {
+			// 현재 회원이 찜한 제품번호 찾기
+			String sql = "select pno from pwishlist where mno = "+ mno; // 현재 회원의 찜하기 제품번호 목록 찾기
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			// 현재 회원이 찜한 제품번호의 레코드반환
+				// 찾은 제품번호 하나씩  findByPno() 함수에게 전달해서 제품정보를 list 담기
+			while(rs.next()) {list.add(findByPno( rs.getInt("pno")));}
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
